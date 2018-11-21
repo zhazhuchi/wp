@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <title>电子地图</title>
+    <link rel="stylesheet" type="text/css" href="../../js/ydui/ydui_diy.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/mui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/emap.css" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=yaDRGoon5YoRzAAwH781yUgn"></script>
+</head>
+<body>
+    <div id="weatherborder">
+        <div id="wenduBorder">
+            <div id="dawendu">
+                <span id="dawendutxt"></span><span id="dawendudanwei">°C</span>
+            </div>
+            <div id="wendufanwei">
+                <span id="wendufromvalue"></span><span id="wendufromdanwei">°C ~ </span>
+                <span id="wendutovalue"></span><span id="wendutodanwei">°C</span>
+            </div>
+        </div>
+        <div id="weatherInfo">
+            <div id="weathertianqi" class="clearfix">
+                <div id="weathertianqiimg"><img></div>
+                <div id="weathertianqitxt"></div>
+            </div>
+            <div id="weatherfengsu" class="clearfix">
+                <span id="fengji"></span> &nbsp;&nbsp;&nbsp;
+                <span id="fengsu"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="mapposition">
+        <div id="mapBorder"></div>
+        <div id="machineList"><ul id="machineItemList"></ul></div>
+        <div id="statesList">
+            <ul>
+                <li class="statesListItem">
+                    <div class="statesPoint statesnormal"></div>
+                    <div class="statesTxt">&nbsp;&nbsp;正常</div>
+                </li>
+                <li class="statesListItem">
+                    <div class="statesPoint stateserr"></div>
+                    <div class="statesTxt">&nbsp;&nbsp;异常</div>
+                </li>
+                <li class="statesListItem">
+                    <div class="statesPoint statesnoce"></div>
+                    <div class="statesTxt">&nbsp;&nbsp;缺测</div>
+                </li>
+            </ul>
+        </div>
+        <div id="fullPageIcon"><img src="./img/fullPage.png"></div>
+    </div>
+
+    <div id="outFullPageIcon"><img src="./img/outfullpage.png"></div>
+    <div class="allmask" id="mask"></div>
+
+    <div id="fengjiInfoBorder">
+        <div id="totalInfo">
+            <div id="allcount">
+                <span id="windname"></span>：共有<span id="allcountValue"></span>台风机；<span id="allrunnum">79</span>&nbsp;台正在运行，<span id="allrunnum2">1</span>&nbsp;台停运
+            </div>
+            <div id="sencondLine"><span id="asd"></span><span id="allerrInfo"></span></div>
+        </div>
+        <div id="totalZhishi" class="clearfix">
+            <div class="zhishiBorder clearfix"><div class="zhishiTxt">运行状态&nbsp;&nbsp;&nbsp;</div><div id="zhishi1" class="smallpoint"></div></div>
+            <div class="zhishiBorder clearfix"><div class="zhishiTxt">沉降状态&nbsp;&nbsp;&nbsp;</div><div id="zhishi2" class="smallpoint"></div></div>
+            <div class="zhishiBorder clearfix"><div class="zhishiTxt">应力状态&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div id="zhishi3" class="smallpoint"></div></div>
+            <div class="zhishiBorder clearfix"><div class="zhishiTxt">偏航状态&nbsp;&nbsp;&nbsp;</div><div id="zhishi4" class="smallpoint"></div></div>
+            <div class="zhishiBorder clearfix"><div class="zhishiTxt">震动状态&nbsp;&nbsp;&nbsp;</div><div id="zhishi5" class="smallpoint"></div></div>
+            <div class="zhishiBorder clearfix"><div class="zhishiTxt">数据完整性&nbsp;&nbsp;&nbsp;</div><div id="zhishi6" class="smallpoint"></div></div>
+            <div class="zhishiBorder clearfix"><div class="zhishiTxt">倾斜状态&nbsp;&nbsp;&nbsp;</div><div id="zhishi7" class="smallpoint"></div></div>
+            <div class="zhishiBorder clearfix"><div class="zhishiTxt">腐蚀状态&nbsp;&nbsp;&nbsp;</div><div id="zhishi8" class="smallpoint"></div></div>
+            <div class="zhishiBorder clearfix"><div class="zhishiTxt">基础冲刷状态</div><div id="zhishi9" class="smallpoint"></div></div>
+            <div class="zhishiBorder clearfix"><div class="zhishiTxt">其他状态&nbsp;&nbsp;&nbsp;</div><div id="zhishi0" class="smallpoint"></div></div>
+        </div>
+    </div>
+    <div id="tanchuan">
+        <div id="closeIcon"><img src="./img/closeIcon.png"></div>
+        <div id="tanchuanTitle">风机编号：<span id="tanchuanTitleNum"></span></div>
+        <div id="tanchuanContent">
+            <div class="tccontenttitle">当前状态</div>
+            <div id="nowStateText"></div>
+            <div class="tccontenttitle">重点监测</div>
+            <div id="mainJiance"></div>
+        </div>
+        <div id="lofffordetail">查看详情</div>
+    </div>
+</body>
+</html>
+
+<!-- 地图分类信息模板 -->
+<script id="mapItemTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <li class="machineListItem">
+            <div class="chooseOuterB">
+                <div class="chooseInnerB choosedInner"></div>
+            </div>
+            <div class="machineTxt">{{type}}</div>
+            <!-- <div class="machineImg"><img src="./img/{{type}}.png"></div> -->
+        </li>
+    {{/item}}
+</script>
+
+<script src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/map/index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/map/oldconvert.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.flexible.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mustache.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/emap.js"></script>

@@ -1,0 +1,46 @@
+#searchBar{
+    padding: 8px;
+    height: 44px;
+    background-color: #ddd;
+    position: relative;
+}
+#searchInput{
+    border: none;
+    height: 30px;
+    color: #585858;
+    margin-top: -1px;
+    font-size: 14px;
+}
+#searchIcon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: 13px;
+}
+#searchIcon img{
+    height: 100%;
+    width: 100%
+}
+
+
+
+
+
+
+ul > li {
+    height: 50px;
+}
+.historyTxt{
+    float: left;
+    font-size: 15px;
+    line-height: 25px;
+    color: #585858;
+}
+.deleteIcon{
+    float: right;
+    font-size: 15px;
+    line-height: 25px;
+    color: #888;
+    text-decoration: underline;
+}

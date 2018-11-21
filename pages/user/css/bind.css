@@ -1,0 +1,46 @@
+#headImg{
+    height: 160px;
+}
+#headImg img{
+    width: 100%;
+}
+#bingInfo{
+
+}
+#username{
+    width: 70%;
+    text-align: left;
+    background-color: #fff;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    margin-left: 15%;
+    padding-left: 10px;
+    color: #585858;
+    margin-top: 25px;
+}
+#mobile{
+    width: 70%;
+    text-align: left;
+    background-color: #fff;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    margin-left: 15%;
+    padding-left: 10px;
+    color: #585858;
+    margin-top: 25px;
+}
+#button{
+    width: 70%;
+    text-align: center;
+    background-color: #fff;
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    margin-left: 15%;
+    padding-left: 10px;
+    color: #fff;;
+    margin-top: 25px;
+    background-color: #517FF3;
+}

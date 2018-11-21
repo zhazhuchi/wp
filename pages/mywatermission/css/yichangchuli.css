@@ -1,0 +1,270 @@
+#heade{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+
+
+
+
+.editState{
+    position: absolute;
+    top: 14px;
+    right: 11px;
+}
+.editStateTxt{
+    float: right;
+    color: #888;
+    font-size: 13px;
+    line-height: 21px;
+}
+.editStatePic{
+    float: right;
+    width: 14px;
+    height: 14px;
+    margin-top: 3.5px;
+}
+.editStatePic img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+.item{
+    background-color: #FFF;
+    padding-top: 6px;
+    margin-bottom: 15px;
+    margin-top: 12px;
+}
+.itemTitle{
+    height:45px;
+    padding-top: 9px;
+    margin-bottom: 5px;
+}
+.blueblock{
+    width: 7px;
+    height: 24px;
+    background-color: #517FF3;
+    border-radius: 2px;
+    float: left;
+    margin: 0 12px 0 15px;
+}
+.itemTitleTxt{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #000;
+    float: left;
+    width: 19%;
+}
+.fenggexian{
+    margin-top: 10px;
+    float: left;
+    width: 68%;
+    height: 9px;
+}
+.fenggexian img{
+    width: 100%;
+    height: 100%;
+}
+
+.itemContent{
+    margin: 0 15px;
+    line-height: 30px;
+}
+
+
+
+
+
+
+.SCTPBorder{
+    height: 88px;
+    width: 31%;
+    margin-right: 2.32%;
+    float: left;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.deleteImg{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    height: 20px;
+    width: 20px;
+    font-size: 25px;
+}
+.deleteImg img{
+    width: 100%;
+    height: 100%;
+}
+
+.SCTPBorder img{
+    width: 100%;
+    height: 100%;
+}
+.addSCTPBorder{
+    padding-top: 20px;
+    height: 88px;
+    width: 31%;
+    margin-right: 2.32%;
+    float: left;
+    margin-bottom: 10px;
+}
+.addSCTPBorder img{
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+textarea{
+    border: 1px solid #ddd;
+    width: 100%;
+    height: 150px;
+    color: #bbb;
+    padding: 6px;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.container{
+    border: 1px solid #3c80e6;
+    position: relative;
+    height: 39px;
+    width: 100%;
+    background-color: #3c80e6;
+}
+.inner-triangle{
+    border-left: 25px solid transparent;
+    border-right: 25px solid #FFF;
+    border-top: 25px solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+}
+.inner-triangle > i{
+    position: absolute;
+    top: -21px;
+    left: 11px;
+    color: #3c80e6;
+}
+.outer-triangle{
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+}
+.chooseTxt{
+    color: #FFF;
+    line-height: 39px;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+}
+
+.nochooseborder{
+    background-color: #EEF7FF;
+    border: 1px solid transparent;
+}
+.nochooseColor{
+    color: #585858;
+}
+.nochoose{
+    display: none;
+}
+
+.RWTSborder{
+    width: 48%;
+    float: left;
+    margin-bottom: 10px;
+}
+
+
+#lastBtn{
+    position: fixed;
+    bottom: 0;
+    height: 44px;
+    color: #fff;
+    width: 100%;
+    font-size: 16px;
+    z-index: 1000;
+}
+#confirmSubmit{
+    background-color: #517FF3;
+    width: 100%;
+    float: left;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+}
+#confirmStorge{
+    background-color: #ccc;
+    width: 50%;
+    float: left;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+}
+
+
+
+#hiddeninputfile{
+    position: fixed;
+    top: -200px;
+    left: -200px;
+    z-index: 0;
+}
+.addSCTPBorder{
+    text-align: center;
+    position: relative;
+}
+#addSCTPBorderInput{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1499;
+}

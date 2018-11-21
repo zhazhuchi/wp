@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>未授权</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/mui.min.css" />
+    <style>
+        body{
+            background-color: #fff;
+        }
+        #topImg{
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            margin-top: 80px;
+        }
+        #topImg img{
+            width: 100%;
+            height: 100%;
+        }
+        #msg1{
+            text-align: center;
+            color: #585858;
+            font-size: 18px;
+            line-height: 40px;
+            margin-top: 20px;
+        }
+        #msg2{
+            text-align: center;
+            color: #888;
+            width: 90%;
+            margin-left: 5%;
+            font-size: 13px;
+        }
+        #backIcon{
+            height: 44px;
+            width: 90%;
+            margin-left: 5%;
+            line-height: 44px;
+            text-align: center;
+            color: #fff;
+            background-color: #517FF3;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="topImg"><img src="./img/error.png"></div>
+    <div id="msg1">未授权</div>
+    <div id="msg2">您的账号对该模块暂未授权，请联系系统管理员开启权限</div>
+    <div id="backIcon">返回</div>
+</body>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.flexible.js"></script>
+<script>
+    $("#backIcon").click(function(){
+        f_close();
+    });
+    function f_close(){
+        if(typeof(WeixinJSBridge)!="undefined"){
+            WeixinJSBridge.call('closeWindow');
+        } else {
+            if (navigator.userAgent.indexOf("MSIE") > 0) {  
+                if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {  
+                    window.opener = null; window.close();  
+                } else {  
+                    window.open('', '_top'); window.top.close();  
+                }  
+            } else if (navigator.userAgent.indexOf("Firefox") > 0) {  
+                window.location.href = 'about:blank ';  
+            } else {  
+                window.opener = null;   
+                window.open('', '_self', '');  
+                window.close();  
+            }
+        }
+    }
+</script>
+</html>

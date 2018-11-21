@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>我的任务-水电</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/mui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/ydui/ydui.css" />
+    <link rel="stylesheet" type="text/css" href="./css/processHistory.css" />
+</head>
+<body>
+    <header class="m-navbar" id="heade">
+        <a href="#" class="navbar-item" id="backicon">
+            <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">处理历史</span>
+        </div>
+        <div class="editState" id="xiugaizhuangtai">
+            <div class="editStatePic"><img src="./img/edit.png"></div>
+            <div class="editStateTxt">新增异常处理&nbsp;</div>
+        </div>
+    </header>
+
+    <!--下拉刷新容器-->
+    <div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <!--数据列表-->
+            <ul class="mui-table-view mui-table-view-chevron" id="datalist"></ul>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- 列表模板 -->
+<script id="dataListItemTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <li class="mui-table-view-cell" rowguid="{{RowGuid}}">
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-red" rowguid="{{RowGuid}}">删除</a>
+            </div>
+            <div class="mui-slider-handle" rowguid="{{RowGuid}}">
+                <div class="listleftitem">
+                    <div class="listleftTitle">{{DealScheme}}</div>
+                    <div class="listleftInfo">
+                        <div class="listinfoline1"><span class="listinfotxt1">处理时间：</span><span class="listinfovalue1">{{AddTime}}</span></div>
+                        <div class="listinfoline2"><span class="listinfotxt2">处理结论：</span><span class="listinfovalue2 pass">{{Status}}</span></div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    {{/item}}
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mustache.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.flexible.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/processHistory.js"></script>

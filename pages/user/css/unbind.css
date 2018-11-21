@@ -1,0 +1,77 @@
+input{
+    height: 39px;
+}
+
+#headImg{
+    height: 160px;
+}
+#headImg img{
+    width: 100%;
+}
+#bingInfo{
+
+}
+#username{
+    width: 70%;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    margin-left: 15%;
+    color: #585858;
+    margin-top: 25px;
+    position: relative;
+    padding-left: 27px;
+    background-color: #fff;
+    background-image: url(../img/user.png);
+    background-repeat: no-repeat;
+    background-size: 17px;
+    background-position: 10px 11px;
+}
+#mobile{
+    width: 70%;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    margin-left: 15%;
+    color: #585858;
+    margin-top: 25px;
+    position: relative;
+    padding-left: 27px;
+    background-color: #fff;
+    background-image: url(../img/password.png);
+    background-repeat: no-repeat;
+    background-size: 17px;
+    background-position: 10px 11px;
+}
+#button{
+    width: 70%;
+    text-align: center;
+    background-color: #fff;
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    margin-left: 15%;
+    color: #fff;;
+    margin-top: 25px;
+    background-color: #517FF3;
+}
+
+
+
+
+
+input{
+    border: 0px;
+    background-color: #fff;
+    color: #888;
+}
+
+.inputIcon{
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    color: #517FF3;
+    font-weight: bold;
+}

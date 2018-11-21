@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>水电任务定制</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/mui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/ydui/ydui.css" />
+    <link rel="stylesheet" type="text/css" href="./css/chooseMission.css" />
+</head>
+<body>
+
+    <header class="m-navbar" id="heade">
+        <a href="#" class="navbar-item" id="iconback">
+            <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">任务编辑</span>
+        </div>
+        <div class="editState" id="AddChoseTask">
+            <div class="editStateTxt">确认( <span id="confirmCount"></span> )</div>
+        </div>
+    </header>
+
+    <div id="searchBar" style="margin-top:44px;">
+        <input type="text" id="searchInput" placeholder="请输入关键字">
+        <div id="searchIcon"><img src="./img/search.png"></div>
+    </div>
+
+    <div id="controllerBar">
+        <div class="controllerBarItem">
+            <div id="SYJ">上一级</div>
+        </div>
+        <div class="controllerBarItem">
+            <div id="QX">全选</div>
+        </div>
+        <div class="controllerBarItem">
+            <div id="QK">清空</div>
+        </div>
+    </div>
+
+    <div class="mui-content">
+        <ul class="mui-table-view" id="cengjiList"></ul>
+    </div>
+
+</body>
+</html>
+
+<script id="hasNextTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <li class="mui-table-view-cell haveNextItem" id="{{{ItemCode}}}">
+            <a class="mui-navigate-right" id="{{{ItemCode}}}">{{{ItemText}}}</a>
+        </li>
+    {{/item}}
+</script>
+
+<script id="noNextTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <li class="mui-table-view-cell mui-checkbox mui-right notHaveNextItem" id="{{ItemCode}}">
+            <input name="checkbox" type="checkbox" class="checkboxneedmargin" {{checked}} ItemCode="{{ItemCode}}" ItemText="{{ItemText}}" FullText="{{FullText}}" Lat="{{Lat}}" Lon="{{Lon}}">
+            <div>
+                {{#showLocation}}
+                    <div class="locationIcon"><img src="./img/location.png"></div>
+                {{/showLocation}}
+                {{#hideLocation}}
+                    <div class="locationIcon"><img src="./img/nolocation.png"></div>
+                {{/hideLocation}}
+                <div class="shixiangInfo">
+                    <div class="shixiangName">{{{ItemText}}}</div>
+                    <div class="shixiangLujing"><span>路径：</span><span>{{{FullText}}}</span></div>
+                </div>
+            </div>
+        </li>
+    {{/item}}
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mustache.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.flexible.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/chooseMission.js"></script>

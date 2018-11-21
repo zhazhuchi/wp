@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <title>历史数据查询</title>
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/mui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/mui.picker.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/historygrid.css" />
+</head>
+<body>
+
+    <div class="mui-content" style="background-color:#fff">
+        <div id="twoChooseBorder">
+            
+            <div id="twoChoose">
+                <div id="shujubiao" class="chooseActive">数据表</div>
+                <div id="guochengxian">过程线</div>
+                <div id="fengexian"></div>
+            </div>
+
+            <div id="backicon"><span class="mui-icon mui-icon-back"></span></div>
+            <div id="filterIcon">筛选&nbsp;<span class="mui-icon mui-icon-arrowdown"></span></div>
+        </div>
+
+        <div id="advance_filter">
+            <div id="chooseTimeTxt">时间选择：</div>
+
+            <div class="chooseTimeBorder clearfix">
+                <div class="chooseTime clearfix" style="width: 44%" id="chooseBeginTime">
+                    <div class="chooseTimeValue" id="starttime"></div>
+                    <div class="chooseTimeImg"><img src="./img/down.png"></div>
+                </div>
+
+                <div id="zhiTxt" style="width: 9%"><div>至</div></div>
+
+                <div class="chooseTime clearfix" style="width: 44%" id="chooseEndTime">
+                    <div class="chooseTimeValue" id="endtime"></div>
+                    <div class="chooseTimeImg"><img src="./img/down.png"></div>
+                </div>
+            </div>
+
+            <div id="SJYBorder">
+                <div id="SJYTxt">
+                    <div>数据源:</div>
+                </div>
+            </div>
+
+            <div class="filterBtns">
+                <div class="confirmBtn">确认</div>
+                <div class="cancleBtn">取消</div>
+            </div>
+        </div>
+
+        <div id="AllMask"></div>
+        
+        <div id="totalTxt" style="background-color: #efeff4;"></div>
+
+        <div class="data-table" id="dataGrid" style="background-color:#fff">
+            <div class="t_l">
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>时间</th>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="t_l_freeze">
+                    <table id="dateLists"></table>
+                </div>
+            </div>
+            <div class="t_r">
+                <div class="t_r_t">
+                    <table>
+                        <tbody>
+                            <tr id="thLists"></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="t_r_content">
+                    <table>
+                        <tbody id="trueDateList"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="nodata">没有更多数据了</div>
+
+        <div id="EchartBorder">
+            <div id="EchartTitle"><span id="echartTitle"></span>&nbsp;过程线</div>
+            <div id="EchartDate"><span id="echartStartTime"></span>&nbsp;至&nbsp;<span id="echartEndTime"></span></div>
+            <div id="EchartContent"></div>
+        </div>
+
+        <div class="mask-white-dialog" id="YDUI_LOADING">   
+            <div class="m-loading">       
+                <div class="loading-icon"></div>       
+                <div class="loading-txt">加载中…</div>   
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<!-- YQLX模板 -->
+<script id="SJYItemTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <div class="mui-input-row mui-radio mui-left SJY_Choose">
+            <label>{{TableChineseName}}</label>
+            <input value="{{TableName}}" name="radio1" type="radio" class="SJY_Choose_input">
+        </div>
+    {{/item}}
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mustache.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/iscroll-probe.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/echarts.simple.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.picker.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.dtpicker.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/historygrid.js"></script>

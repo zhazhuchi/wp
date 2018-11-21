@@ -1,0 +1,42 @@
+#heade{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.editState{
+    position: absolute;
+    top: 14px;
+    right: 11px;
+}
+.editStateTxt{
+    float: right;
+    color: #888;
+}
+
+
+
+
+
+#pullrefresh{
+    margin-top: 46px;
+}
+
+
+
+
+
+
+.muilistitem{
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #ddd;
+}
+
+.peoplename{
+    font-size: 14px;
+    color: #585858;
+}
+.checkboxInput{
+    margin-top: 3px;
+}

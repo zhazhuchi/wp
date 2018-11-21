@@ -1,0 +1,366 @@
+#heade{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#pullrefresh{
+    margin-top: 400px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.item{
+    padding-top: 6px;
+    height: 90px;
+    background-color: #f8f8f8;
+}
+.itemTitle{
+    height:28px;
+    padding-top: 9px;
+    margin-bottom: 5px;
+}
+.blueblock{
+    width: 7px;
+    height: 24px;
+    background-color: #517FF3;
+    border-radius: 2px;
+    float: left;
+    margin: 0 12px 0 15px;
+}
+.itemTitleTxt{
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #000;
+    float: left;
+    width: 19%;
+}
+.fenggexian{
+    margin-top: 10px;
+    float: left;
+    width: 68%;
+    height: 9px;
+}
+.fenggexian img{
+    width: 100%;
+    height: 100%;
+}
+
+.itemContent{
+    margin: 0 15px;
+}
+
+
+
+
+
+
+
+
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+
+
+
+
+
+
+
+.infoSubThree{
+    color: #585858;
+    font-size: 15px;
+}
+.infoSubThreeBorder{
+    border: 1px solid #ddd;
+    height: 36px;
+    float: left;
+    margin-top: 10px;
+    background-color: #fff;
+}
+.infoSubThreeValue{
+    float: left;
+    line-height: 34px;
+    margin-left: 10px;
+    color: #888;
+    font-size: 14px;
+    border: none;
+    height: 36px;
+}
+input{
+    height: 36px;
+}
+.infoSubThreeImg{
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin-top: 8px;
+    margin-right: 10px;
+}
+.infoSubThreeImg img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+.needBtn{
+    
+}
+#moreIcon{
+    width: 18%;
+    float: right;
+    padding-top: 10px;
+}
+
+#moreIcon img{
+    height: 36px;
+    float: right;
+}
+
+#addIcon{
+    width: 18%;
+    float: right;
+    padding-top: 10px;
+}
+
+#addIcon img{
+    height: 36px;
+    float: right;
+}
+
+
+
+
+#newshixiang{
+    height: 23px;
+    width: 81px;
+    float: right;
+}
+#newshixiang img{
+    height: 100%;
+}
+
+
+
+
+
+
+
+#missionList{
+    margin-top: 25px;
+}
+.missionListItem{
+    height: 75px;
+}
+
+
+
+.locationIcon{
+    width: 10%;
+    float: left;
+}
+.locationIcon img{
+    height: 25px;
+    margin-top: 13px;
+}
+.shixiangInfo{
+    width: 80%;
+    float: left;
+    color: #888;
+}
+.shixiangName{
+    line-height: 30px;
+    color: #585858;
+    font-size: 15px;
+}
+.shixiangLujing{
+    color: #888;
+    font-size: 13px;
+}
+.moveIcon{
+    width: 8%;
+    float: left;
+}
+.moveIcon img{
+    height: 15px;
+    float: right;
+    margin-top: 17px;
+}
+
+
+
+
+
+
+
+
+
+#deliverCheck{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    background-color: #517FF3;
+    font-size: 15px;
+    position: fixed;
+    bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#tc_map{
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    background-color: #fff;
+    border-radius: 6px;
+    z-index: 998;
+}
+#tc_baidu_map{
+    width: 100%;
+    height: 205px;
+}
+#map_btns{
+    color: #fff;
+    width: 180px;
+    margin: 0 auto;
+    margin-top:11px;
+    margin-bottom:7px;
+    height: 33px;
+}
+#have_map_btn{
+    width: 80px;
+    height: 30px;
+    background-color: #517FF3;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    float: left;
+    font-size: 15px;
+}
+#no_map_btn{
+    width: 80px;
+    margin-left: 20px;
+    height: 30px;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    float: left;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+.allmask {
+    display: none;
+    z-index: 997;
+    margin-top: 0px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.anchorBL{
+    display: none;
+}
+
+
+
+.missionListItem{
+    background-color: #FFF;
+    font-size: 13px;
+}
+.missionListItem:nth-of-type(odd){
+    background-color: #EEF7FF;
+}
+
+.mui-table-view-cell:after{
+    display: none;
+}
+
+
+
+#locationIcon{
+    width: 26px;
+    position: absolute;
+    z-index: 10000000;
+    left: 47%;
+    top: 90px;
+}
+
+#locationIcon img{
+    width: 100%;
+}

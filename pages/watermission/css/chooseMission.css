@@ -1,0 +1,181 @@
+#heade{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.editState{
+    position: absolute;
+    top: 14px;
+    right: 11px;
+}
+.editStateTxt{
+    float: right;
+    color: #888;
+}
+
+
+
+
+
+
+
+#searchBar{
+    padding: 8px;
+    height: 44px;
+    background-color: #ddd;
+    position: relative;
+}
+#searchInput{
+    border: none;
+    height: 30px;
+    color: #585858;
+    margin-top: -1px;
+    font-size: 14px;
+}
+#searchIcon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: 13px;
+}
+#searchIcon img{
+    height: 100%;
+    width: 100%
+}
+
+
+
+
+
+
+
+
+#controllerBar{
+    height: 30px;
+    font-size: 15px;
+    color: #888;
+}
+.controllerBarItem{
+    width: 33.333333%;
+    float: left;
+    text-align: center;
+    line-height: 43px;
+}
+#SYJ{
+    background: url('../img/upup.png');
+    background-repeat: no-repeat;
+    background-size: 13px;
+    background-position: right center;
+    margin-right: 13px;
+    width: 77px;
+    margin: 0 auto;
+}
+#QX{
+    background: url('../img/todo.png');
+    background-repeat: no-repeat;
+    background-size: 13px;
+    background-position: right center;
+    margin-right: 10px;
+    width: 67px;
+    margin: 0 auto;
+}
+#QK{
+    background: url('../img/delete.png');
+    background-repeat: no-repeat;
+    background-size: 13px;
+    background-position: right center;
+    margin-right: 10px;
+    width: 67px;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+.haveNextItem{
+    height: 75px;
+    line-height: 53px;
+    font-size: 15px;
+    color: #585858;
+}
+.haveNextItem a{
+    font-size: 15px;
+}
+.notHaveNextItem{
+    height: 75px;
+}
+
+
+
+.mui-table-view-cell:after{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.checkboxneedmargin{
+    margin-top: 15px;
+}
+
+.locationIcon{
+    width: 10%;
+    float: left;
+}
+.locationIcon img{
+    height: 25px;
+    margin-top: 13px;
+}
+.shixiangInfo{
+    width: 80%;
+    float: left;
+    color: #888;
+}
+.shixiangName{
+    line-height: 30px;
+    color: #585858;
+    font-size: 15px;
+}
+.shixiangLujing{
+    color: #888;
+    font-size: 13px;
+}
+.moveIcon{
+    width: 8%;
+    float: left;
+}
+.moveIcon img{
+    height: 15px;
+    float: right;
+    margin-top: 17px;
+}
+
+
+
+.mui-table-view-cell{
+    background-color: #FFF;
+    font-size: 13px;
+}
+.mui-table-view-cell:nth-of-type(odd){
+    background-color: #EEF7FF;
+}

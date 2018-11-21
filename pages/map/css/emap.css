@@ -1,0 +1,452 @@
+html,body{
+    width:100%;
+    height:100%;
+}
+*{
+    margin:0px;
+    padding:0px;
+}
+body, button, input, select, textarea {
+    font: 12px/16px Verdana, Helvetica, Arial, sans-serif;
+}
+
+#weatherborder{
+    background-image: url(../img/weatherbak.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 120px;
+    color: #efefef;
+    display: none;
+}
+#wenduBorder{
+    margin-left: 38px;
+    margin-top: 13px;
+    float: left;
+}
+#dawendu{
+    margin-top: 30px;
+    position: relative;
+}
+#dawendutxt{
+    color: #fff;
+    font-size: 46px;
+}
+#dawendudanwei{
+    position: absolute;
+    top: -11px;
+    right: 0px;
+    font-size: 13px;
+}
+#wendufanwei{
+    font-size: 13px;
+    margin-top: 5px;
+}
+#wendufromvalue{
+
+}
+#wendufromdanwei{
+
+}
+#wendutovalue{
+
+}
+#wendutodanwei{
+
+}
+
+#weatherInfo{
+    float: right;
+    margin-top: 31px;
+    width:100px;
+    width: 175px;
+}
+#weathertianqi{
+
+}
+#weathertianqiimg{
+    width: 37px;
+    height: 37px;
+    float: left;
+}
+#weathertianqiimg img{
+    width: 100%;
+    height: 100%;
+}
+#weathertianqitxt{
+    float: left;
+    line-height: 37px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+#weatherfengsu{
+    font-size: 13px;
+    line-height: 34px;
+}
+#fengji{
+
+}
+#fengsu{
+
+}
+
+
+
+
+
+
+
+
+#fengjiInfoBorder{
+    color: #888888;
+    background-color: #fff;
+    display: none;
+}
+#totalInfo{
+    width: 98%;
+    margin-left: 1%;
+    font-size: 14px;
+    line-height: 40px;
+    border-bottom: 1px dashed rgb(177, 177, 177);
+    padding-bottom: 5px;
+    padding-right: 4px;
+    padding-top: 5px;
+}
+#allcount{
+    margin-left: 4%;
+}
+#sencondLine{
+    margin-left: 4%;
+}
+#allcountValue{
+    color: #517FF3;
+    font-size: 23px;
+}
+#allrunInfo{
+    margin-left: 4%;
+}
+#allrunnum{
+    color: #6DC16D;
+    font-size: 23px;
+}
+#allrunnum2{
+    color: #F17C7C;
+    font-size: 23px;
+}
+#allerrnum{
+    color: #6DC16D;
+    font-size: 23px;
+}
+#allerrnum2{
+    color: #F17C7C;
+    font-size: 23px;
+}
+#allerrnum3{
+    color: #E9B11A;
+    font-size: 23px;
+}
+
+
+#totalZhishi{
+    width: 98%;
+    margin-left: 1%;
+    font-size: 14px;
+    margin-top: 20px
+}
+.zhishiBorder{
+    width: 29%;
+    margin-left: 4%;
+    float: left;
+    height: 38px;
+    line-height: 15px;
+}
+.zhishiTxt{
+    float: left;
+    line-height: 13px;
+}
+.smallpoint{
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    float: left;
+    background-color: transparent;
+}
+
+
+
+
+
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+
+
+#mapBorder{
+    height: 300px;
+    margin-bottom: 8px;
+}
+
+#closeIcon{
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    top: 4px;
+    right: 4px;
+    z-index: 100000000;
+}
+#closeIcon img{
+    width: 100%;
+    height: 100%;
+}
+#tanchuan{
+    display: none;
+    position: fixed;
+    top: 140px;
+    width: 280px;
+    margin: 0 auto;
+    left: 50%; 
+    margin-left: -140px;
+    height: 260px;
+    border-radius: 5px;
+    background-color: #fff;
+    z-index: 10000000;
+    padding-bottom: 15px;
+}
+#tanchuanContent{
+    height: 148px;
+    overflow: scroll;
+}
+#tanchuanTitle{
+    width: 280px;
+    height: 65px;
+    background: url('../img/tanchuangbak.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 19px;
+    line-height: 65px;
+}
+
+#tanchuanTitleNum{
+    font-size: 28px;
+}
+.tccontenttitle{
+    line-height: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: #517FF3;
+    margin-top: 5px;
+}
+
+.tccontentcontent{
+    line-height: 25px;
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+}
+
+
+
+
+
+
+
+
+
+.allmask {
+    display: none;
+    z-index: 9999999;
+    margin-top: 0px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.3;
+}
+.anchorBL{
+    display: none;
+}
+
+
+
+
+#mapposition{
+    position: relative;
+    height: 300px;
+    display: none;
+}
+
+#machineList{
+    position: absolute;
+    z-index: 1000000;
+    top: 10px;
+    left: 10px;
+}
+.machineListItem{
+    height: 25px;
+}
+.chooseOuterB{
+    float: left;
+    height: 16px;
+    width: 16px;
+    border: 1px solid #517FF3;
+    background-color: transparent;
+}
+.chooseInnerB{
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+.choosedInner{
+    background-color: #517FF3;
+}
+.machineTxt{
+    float: left;
+    line-height: 15px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #fff;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.machineImg{
+    width: 17px;
+    height: 17px;
+    float: right;
+}
+.machineImg img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+#statesList{
+    position: absolute;
+    z-index: 1000000;
+    top: 230px;
+    left: 14px;
+}
+.statesListItem{
+    height: 23px;
+}
+.statesPoint{
+    float: left;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+}
+.statesTxt{
+    float: left;
+    color: #888;
+}
+.statesnormal{
+    background-color: #6DC16D;
+}
+.stateserr{
+    background-color: #F17C7C;
+}   
+.statesnoce{
+    background-color: #E9B11A;
+}
+
+
+
+#fullPageIcon{
+    position: absolute;
+    z-index: 1000000;
+    top: 10px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
+}
+#fullPageIcon img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+#outFullPageIcon{
+    display: none;
+    position: fixed;
+    z-index: 1000000;
+    top: 15px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
+}
+#outFullPageIcon img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.styleErr{
+    color: #F17C7C;
+    font-size: 23px;
+}
+.styleSucc{
+    color: #6DC16D;
+    font-size: 23px;
+}
+.styleNormal{
+    color: #E9B11A;
+    font-size: 23px;
+}
+
+#lofffordetail{
+    width: 60%;
+    margin-left: 20%;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: #517FF3;
+    border-radius: 4px;
+}
+
+
+
+
+
+@-webkit-keyframes rotation{
+    from {
+        -webkit-transform: rotate(0deg);
+        }
+    to {
+        -webkit-transform: rotate(360deg);
+        }
+}
+.rotate_animate_normal{
+    animation: rotation 3s linear infinite;
+}

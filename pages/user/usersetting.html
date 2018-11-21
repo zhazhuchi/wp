@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>用户设置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/mui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/ydui/ydui.css" />
+    <style>
+        body{
+            background-color:#fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="J_Tab" class="m-tab">
+        <ul class="tab-nav">
+            <li class="tab-nav-item tab-active"><a href="javascript:;">数据库设置</a></li>
+            <li class="tab-nav-item secondItem"><a href="javascript:;">通知设置</a></li>
+        </ul>
+        <div class="tab-panel">
+            <div class="tab-panel-item tab-active" style="padding:0">
+                <div class="mui-content-padded">
+                    <p style="font-size:14px;">数据库页面初始化，选择需要的数据库</p>
+                </div>
+                <form class="mui-input-group" id="radios"></form>
+            </div>
+            <div class="tab-panel-item secondItem" style="padding:0">
+                <div class="mui-content-padded">
+                    <p>是否开启通知异常</p>
+                </div>
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell">
+                        <span style="font-size:14px;">是否开启</span>
+                        <div id="startIStartYiChang" class="mui-switch mui-active mui-switch-mini">
+                            <div class="mui-switch-handle"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script id="windItemTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <div class="mui-input-row mui-radio" style="padding-top:2px;">
+            <label style="font-size:14px;">{{Wind}}</label>
+            <input name="windradio" type="radio" value="{{WindID}}" class="asd" style="top:5px;">
+        </div>
+    {{/item}}
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mustache.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.flexible.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/usersetting.js"></script>

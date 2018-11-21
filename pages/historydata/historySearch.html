@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>历史数据查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../js/ydui/ydui_diy.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/mui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/historySearch.css" />
+</head>
+<body>
+
+    <div id="filterBorder">
+        <div class="filterItemBorder" id="f1">
+            <div id="filter1" class="filterItem">
+                监测项目&nbsp;<span class="mui-icon mui-icon-arrowdown" style="font-size:17px;"></span>
+            </div>
+        </div>
+        <div class="filterItemBorder" id="f2">
+            <div id="filter2" class="filterItem">
+                仪器类型&nbsp;<span class="mui-icon mui-icon-arrowdown" style="font-size:17px;"></span>
+            </div>
+        </div>
+        <div class="filterItemBorder" id="f3">
+            <div id="filter3" class="filterItem">
+                检测部位&nbsp;<span class="mui-icon mui-icon-arrowdown" style="font-size:17px;"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchBar">
+        <input type="text" id="searchInput" placeholder="请输入关键字">
+        <div id="searchIcon"><img src="./img/search.png"></div>
+    </div>
+
+    <!--下拉刷新容器-->
+    <div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <!--数据列表-->
+            <ul class="mui-table-view mui-table-view-chevron" id="datalist"></ul>
+        </div>
+    </div>
+
+    <div id="JCXM_Filter">
+        <div class="filterChoose" id="JCXM_FilterContent"></div>
+        <div class="filterBtns">
+            <div class="confirmBtn" id="JCXMConfirm">确认</div>
+            <div class="cancleBtn">取消</div>
+        </div>
+    </div>
+
+    <div id="YQLX_Filter">
+        <div class="filterChoose" id="YQLX_FilterContent"></div>
+        <div class="filterBtns">
+            <div class="confirmBtn" id="YQLXConfirm">确认</div>
+            <div class="cancleBtn">取消</div>
+        </div>
+    </div>
+
+    <div id="JCBW_Filter">
+        <div class="filterChoose" id="JCBW_FilterContent"></div>
+        <div class="filterBtns">
+            <div class="confirmBtn" id="JCBWConfirm">确认</div>
+            <div class="cancleBtn">取消</div>
+        </div>
+    </div>
+
+    <div id="AllMask"></div>
+
+</body>
+</html>
+
+<!-- 列表模板 -->
+<script id="dataListItemTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <li class="muilistitem" id="{{PointID}}" name="{{allInfo}}">
+            <div class="listTitle">{{EquipmentName}}</div>
+            <div class="listInfo flexbox">
+                <div class="listgreyItem1">
+                    <span class="listinfotxt1">点号：</span><span class="listinfovalue1">{{Code}}</span>
+                </div>
+                <div class="listgreyItem2">
+                    <span class="listinfotxt2">编号：</span><span class="listinfovalue2">{{Symbol}}</span>
+                </div>
+                <div class="listgreyItem3">
+                    <span class="listinfotxt3">监测项目：</span><span class="listinfovalue3">{{itemsName}}</span>
+                </div>
+            </div>
+        </li>
+    {{/item}}
+</script>
+
+<!-- JCXMall模板 -->
+<script id="JCXMItemTmpl" type="x-tmpl-mustache">
+    <div class="JCXMborder JCXMall">
+        <div class="container">
+            <div class="chooseTxt">全部</div>
+            <div class="inner-triangle"><i class="icon-checkoff"></i></div>
+            <div class="outer-triangle"></div>
+        </div>
+    </div>
+    {{#item}}
+        <div class="JCXMborder" id="{{ID}}">
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">{{Name}}</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+    {{/item}}
+</script>
+
+<!-- YQLX模板 -->
+<script id="YQLXItemTmpl" type="x-tmpl-mustache">
+    <div class="YQLXborder YQLXall">
+        <div class="container">
+            <div class="chooseTxt">全部</div>
+            <div class="inner-triangle"><i class="icon-checkoff"></i></div>
+            <div class="outer-triangle"></div>
+        </div>
+    </div>
+    {{#item}}
+        <div class="YQLXborder" id="{{ID}}">
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">{{Name}}</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+    {{/item}}
+</script>
+
+<!-- JCBW模板 -->
+<script id="JCBWItemTmpl" type="x-tmpl-mustache">
+    <div class="JCBWborder JCBWall">
+        <div class="container">
+            <div class="chooseTxt">全部</div>
+            <div class="inner-triangle"><i class="icon-checkoff"></i></div>
+            <div class="outer-triangle"></div>
+        </div>
+    </div>
+    {{#item}}
+        <div class="JCBWborder" id="{{ID}}">
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">{{Name}}</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+    {{/item}}
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.flexible.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mustache.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/historySearch.js"></script>

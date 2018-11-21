@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>我的任务-风电</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/mui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/ydui/ydui.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/mui.picker.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/addCheck.css" />
+</head>
+<body>
+
+    <div>
+        <div class="item">
+            <div class="itemTitle">
+                <div class="blueblock"></div>
+                <div class="itemTitleTxt">检查地点</div>
+                <div class="fenggexian"><img src="./img/fengge.png"></div>
+            </div>
+            <div class="itemContent clearfix">
+                <div class="checkPlaceBorder clearfix" style="width: 100%" id="selectPlace">
+                    <div class="checkPlaceValue">请选择检查地点</div>
+                    <div class="checkPlaceImg"><img src="./img/down.png"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="secondInfoBorder">
+        <div class="item">
+            <div class="itemTitle">
+                <div class="blueblock"></div>
+                <div class="itemTitleTxt">风机信息</div>
+                <div class="fenggexian"><img src="./img/fengge.png"></div>
+            </div>
+            <div class="itemContent" id="stationInfos"></div>
+        </div>
+    </div>
+
+    <div>
+        <div class="item">
+            <div class="itemTitle">
+                <div class="blueblock"></div>
+                <div class="itemTitleTxt">异常描述</div>
+                <div class="fenggexian"><img src="./img/fengge.png"></div>
+            </div>
+            <div class="itemContent">
+                <textarea id="ycmss" placeholder="请输入异常描述"></textarea>
+                <div id="addPicBtn">添加照片</div>
+                <div class="clearfix">
+                    
+                    <div class="addSCTPBorder" id="imageLists">
+                        <img src="./img/uploadIcon.png">
+                        <div id="addSCTPBorderInput">
+                            <input style="width:100%;height:100%;opacity:0" type='file' id="myfile" multiple accept='image/gif,image/jpeg,image/jpg,image/png' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="item">
+            <div class="itemTitle">
+                <div class="blueblock"></div>
+                <div class="itemTitleTxt">备注说明</div>
+                <div class="fenggexian"><img src="./img/fengge.png"></div>
+            </div>
+            <div class="itemContent">
+                <textarea id="remark" placeholder="请输入备注说明"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div style="padding-bottom:45px;">
+        <div class="item">
+            <div class="itemTitle">
+                <div class="blueblock"></div>
+                <div class="itemTitleTxt">处理状态</div>
+                <div class="fenggexian"><img src="./img/fengge.png"></div>
+            </div>
+            <div class="itemContent clearfix">
+                <div class="CLZTborder fail" style="margin-right: 4%">
+                    <div class="container">
+                        <div class="chooseTxt">异常上报</div>
+                        <div class="inner-triangle"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle"></div>
+                    </div>
+                </div>
+                <div class="CLZTborder success">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">正常完成</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="lastBtn">
+        <div id="confirmSubmit">提交</div>
+    </div>
+</body>
+</html>
+
+<!-- YQLX模板 -->
+<script id="normalErrItemTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <div>
+            <div class="fj_info_name">{{ObjectInfo.Object}}</div>
+            <ul class="fj_info_list">
+                {{#Data}}
+                    <li class="fj_info_list_item clearfix">
+                        <div class="fj_info_list_item_key">{{ObjectStatus}}</div>
+                        <div class="fj_info_list_item_value">
+                            <div class="HBtns">
+                                <div class="succState fjSuc" id="{{ID}}">正常</div>
+                                <div class="failState" id="{{ID}}">异常</div>
+                            </div>
+                        </div>
+                    </li>
+                {{/Data}}
+            </ul>
+        </div>
+    {{/item}}
+</script>
+
+<!-- 图片模板 -->
+<script id="imageItemTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <div class="SCTPBorder">
+            <img src="{{PhotoUrl}}">
+            <div class="deleteImg" deleteImgGuid="{{rowguid}}" inputIndex="{{inputIndex}}">
+                <img src="./img/delete.png">
+            </div>
+        </div>
+    {{/item}}
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mustache.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.flexible.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.picker.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.poppicker.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.dtpicker.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.picker.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/map/jweixin-1.4.0.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/addCheck.js"></script>

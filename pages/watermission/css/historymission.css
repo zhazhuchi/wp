@@ -1,0 +1,126 @@
+#heade{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#pullrefresh{
+    margin-top: 89px;
+}
+
+
+.muilistitem{
+    height: 70px;
+    padding: 10px;
+}
+
+.lineOne{
+    font-size: 14px;
+    color: #585858;
+    line-height: 26px;
+}
+.lineTwo{
+    font-size: 13px;
+    color: #585858;
+}
+.grayTxt{
+    color: #aaa;
+}
+
+.peopleInfo{
+    float: left;
+}
+.dateInfo{
+    float: right;
+}
+
+
+
+
+
+
+
+
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+
+.muilistitem{
+    background-color: #FFF;
+}
+
+.muilistitem:nth-of-type(even){
+    background-color: #EEF7FF;
+}
+
+
+
+
+
+#searchBar{
+    padding: 8px;
+    height: 44px;
+    background-color: #ddd;
+    position: fixed;
+    top: 45px;
+    width: 100%;
+}
+#searchInput{
+    border: none;
+    height: 30px;
+    color: #585858;
+    margin-top: -1px;
+    font-size: 14px;
+}
+#searchIcon{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: 13px;
+}
+#searchIcon img{
+    height: 100%;
+    width: 100%
+}
+
+
+
+
+
+
+
+
+.editState{
+    position: absolute;
+    top: 13px;
+    right: 11px;
+}
+.editStateTxt{
+    float: right;
+    color: #888;
+}
+
+
+
+.mui-table-view-chevron .mui-table-view-cell {
+    padding-right: 10px;
+    height: 69px;
+}
+
+
+#iconback{
+    display: none;
+    margin-top: 12px;
+}

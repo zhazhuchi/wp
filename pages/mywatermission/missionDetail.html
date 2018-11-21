@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>我的任务-水电</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../js/mui/mui.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/ydui/ydui.css" />
+    <link rel="stylesheet" type="text/css" href="./css/missionDetail.css" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=yaDRGoon5YoRzAAwH781yUgn"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>
+</head>
+<body>
+
+    <header class="m-navbar" id="heade">
+        <a href="#" class="navbar-item" id="backicon">
+            <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">任务详情</span>
+        </div>
+        <div class="editState" id="xiugaizhuangtai">
+            <div class="editStatePic"><img src="./img/edit.png"></div>
+            <div class="editStateTxt">修改状态&nbsp;</div>
+        </div>
+    </header>
+
+    <div id="AllInfoBorder">
+        <div class="AllInfoBorderItem">
+            <div class="blueblock"></div>
+            <span class="AllInfoTxt">任务名称：</span>
+            <span class="AllInfoValue" id="AllInfoValue1"></span>
+        </div>
+        <div class="AllInfoBorderItem">
+            <div class="blueblock"></div>
+            <span class="AllInfoTxt">任务状态：</span>
+            <span class="AllInfoValue" id="AllInfoValue4"></span>
+        </div>
+        <div class="AllInfoBorderItem">
+            <div class="blueblock"></div>
+            <span class="AllInfoTxt">巡检人员：</span>
+            <span class="AllInfoValue" id="AllInfoValue2"></span>
+        </div>
+        <div class="AllInfoBorderItem">
+            <div class="blueblock"></div>
+            <span class="AllInfoTxt">巡检时间：</span>
+            <span class="AllInfoValue" id="AllInfoValue3"></span>
+        </div>
+    </div>
+
+    <div id="changexunjianshituBorder">
+        <div id="mapBorder"></div>
+        <div id="changexunjianshitu">
+            <div class="chooseOuterB">
+                <div class="chooseInnerB"></div>
+            </div>
+            <div class="machineTxt">实际巡检路线</div>
+        </div>
+    </div>
+    
+
+    <ul id="shixiangList" class="mui-table-view"></ul>
+
+    <div id="tc_ycsb" class="verticalAlign">
+        <div id="ycImg">
+            <img src="./img/yichangicon.png">
+        </div>
+        <div id="ycTxt">
+                &nbsp;&nbsp;&nbsp;是否异常上报？
+        </div>
+        <div id="yc_btns">
+            <div id="have_yc_btn">有异常</div>
+            <div id="no_yc_btn">无异常</div>
+        </div>
+    </div>
+
+
+    <div id="tc_map" class="verticalAlign">
+        <div id="tc_baidu_map"></div>
+        <div id="map_btns">
+            <div id="have_map_btn">签到</div>
+            <div id="no_map_btn">取消</div>
+        </div>
+        <div id="locationIcon">
+            <img src="./img/location.png">
+        </div>
+    </div>
+
+    <div id="tc_yctx">
+        <div class="everystateb" id="tc_yctx1">
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">异常</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+
+        <div class="everystateb" id="tc_yctx2">
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">待办</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+
+        <div class="everystateb" id="tc_yctx3">
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">已完成</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+    
+        <div id="yc_reason">
+            <form>
+                <textarea id="ycnr" cols="100" rows="4" placeholder="请输入原因"></textarea>
+            </form>
+        </div>
+        <div id="tc_yctx_btns">
+            <div id="have_tc_yctx_btn">确定</div>
+            <div id="no_tc_yctx_btn">取消</div>
+        </div>
+    </div>
+    <div class="allmask" id="AllMask"></div>
+</body>
+</html>
+
+<!-- 列表模板 -->
+<script id="dataListItemTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <li issign="{{issign}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}" rowguid="{{RowGuid}}" class="shixiangListItem mui-table-view-cell" style="padding:0;width:100%">
+
+            <div class="mui-slider-right mui-disabled">
+                <a class="mui-btn mui-btn-green zcbtn" issign="{{issign}}" rowguid="{{RowGuid}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}">正常</a>
+                <a class="mui-btn mui-btn-red ycsbbtn" issign="{{issign}}" rowguid="{{RowGuid}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}">异常上报</a>
+                <a class="mui-btn mui-btn-green ycclbtn" issign="{{issign}}" rowguid="{{RowGuid}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}">异常处理</a>
+            </div>
+
+            <div class="mui-slider-handle" style="width:100%" issign="{{issign}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}" rowguid="{{RowGuid}}" >
+                <div class="mui-table-cell">
+
+                    <div class="shixiangListItemLeft">
+                        <div class="shixiangListItemIndex" style="background-color:{{Color}}">{{ordernum}}</div>
+                    </div>
+                    <div class="shixiangListItemRight">
+                        <div class="shixiangName">
+                            {{ItemText}}
+                        </div>
+                        <div class="shixiangLujing">
+                            <span class="shixiangLujingTxt">路径：</span>
+                            <span class="shixiangLujingValue">{{FullText}}</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </li>
+    {{/item}}
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/map/oldconvert.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/map/index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mustache.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.flexible.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/map/jweixin-1.4.0.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/missionDetail.js"></script>

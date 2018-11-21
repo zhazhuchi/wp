@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>单风机状态</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../js/ydui/ydui.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/mui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/ddd.css" />
+    <link rel="stylesheet" type="text/css" href="./css/singleFan.css" />
+</head>
+<body>
+
+    <header class="m-navbar" id="headerfixed">
+        <a href="#" class="navbar-item" id="backicon">
+            <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">单风机详情</span>
+        </div>
+
+        <div id="chooseShowType">
+            <div id="chooseShowTxt" class="clearfix">
+                <div class="downuptxt">静止</div>
+                <div class="downIcon"><img src="./img/down.png"></div>
+                <div class="upIcon updownchoose"><img src="./img/up.png"></div>
+            </div>
+            <div id="chooseShowItemsBorder">
+                <ul id="chooseShowItems">
+                    <li class="chooseShowItem chooseShowItemActive">静止</li>
+                    <li class="chooseShowItem">转动</li>
+                    <li class="chooseShowItem">晃动</li>
+                    <li class="chooseShowItem">转动晃动</li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" id="asd">
+                <div id="outerBorder">
+
+                    <div id="state1">
+                        <div id="state1_fy">
+                            <img src="./img/fengye.png" id="animatefy">
+                        </div>
+                        <div id="state1_zhu">
+                            <img src="./img/zhuz.png" id="animatezhuzi">
+                        </div>
+                        <div id="state1_gan">
+                            <img src="./img/ganz.png" id="animateganzi">
+                        </div>
+                        <div id="state1_bluel">
+                            <ul id="animatebluebo">
+                                <li><img src="./img/bluebo.png"></li>
+                                <li><img src="./img/bluebo.png"></li>
+                            </ul>
+                        </div>
+                        <div id="state1_whitel">
+                            <ul id="animatewhitebo">
+                                <li><img src="./img/whitepo.png"></li>
+                                <li><img src="./img/whitepo.png"></li>
+                            </ul>
+                        </div>
+                        <div id="state1_see">
+                            <div id="allStatus">
+                                <ul class="flexbox" id="ullist"></ul>
+                            </div>
+                            <div id="turnleft">向右滑动查看详情</div>
+                        </div>
+                        <div id="state1_fish">
+                            <ul id="animatefish" class="fish">
+                                <li><img src="./img/fish.png"></li>
+                                <li><img src="./img/fish.png"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" style="overflow-y:scroll">
+                <div class="item" style="margin-top:57px;">
+                    <div class="itemTitle">
+                        <div class="blueblock"></div>
+                        <div class="itemTitleTxt">基本信息</div>
+                        <div class="fenggexian"><img src="./img/fengge.png"></div>
+                    </div>
+                    <div class="itemContent">
+                        <div class="itemsborder">
+                            <div class="keykey"">风机编号</div>
+                            <div class="valuevalue" id="value1"></div>
+                        </div>
+                        <div class="itemsborder">
+                            <div class="keykey"">经度</div>
+                            <div class="valuevalue" id="value2"></div>
+                        </div>
+                        <div class="itemsborder">
+                            <div class="keykey"">纬度</div>
+                            <div class="valuevalue" id="value3"></div>
+                        </div>
+                        <div class="itemsborder" style="border-bottom:none">
+                            <div class="keykey"">当前状态</div>
+                            <div class="valuevalue" id="value4"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="itemTitle">
+                        <div class="blueblock"></div>
+                        <div class="itemTitleTxt">气象信息</div>
+                        <div class="fenggexian"><img src="./img/fengge.png"></div>
+                    </div>
+                    <div class="itemContent">
+                        <div class="itemsborder">
+                            <div class="keykey"">风速</div>
+                            <div class="valuevalue" id="value5"></div>
+                        </div>
+                        <div class="itemsborder">
+                            <div class="keykey"">风向</div>
+                            <div class="valuevalue" id="value6"></div>
+                        </div>
+                        <div class="itemsborder">
+                            <div class="keykey"">温度</div>
+                            <div class="valuevalue"><span id="value7"></span>°C</div>
+                        </div>
+                        <div class="itemsborder" style="border-bottom:none">
+                            <div class="keykey"">阴晴</div>
+                            <div class="valuevalue" id="value8"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="itemTitle">
+                        <div class="blueblock"></div>
+                        <div class="itemTitleTxt" style="width:25%">在线检测信息</div>
+                        <div class="fenggexian" style="width:62%"><img src="./img/fengge.png"></div>
+                    </div>
+                    <div class="itemContent clearfix" id="datalist"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- 表格中的一行模板 -->
+<script id="monitItemTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <div class="bottomItemBorder clearfix">
+            <div class="dianhao clearfix">点号：{{MONITORName}}</div>
+            <div class="secondLine clearfix">
+                <div class="cedianweizhi">测点位置：{{MontorLoc}}</div>
+                <div class="yiqileixing">仪器类型：{{MONITORTYPE}}</div>
+            </div>
+            <div class="thirdLine clearfix">
+                <div class="jiancexiangmu">检测项目：{{Name}}</div>
+                <div class="jiancechengguo">检测成果数据：{{result}}</div>
+            </div>
+        </div>
+    {{/item}}
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.flexible.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/iscroll-probe.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mustache.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/singleFan.js"></script>

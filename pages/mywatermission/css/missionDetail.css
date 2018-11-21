@@ -1,0 +1,443 @@
+#heade{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+.container{
+    border: 1px solid #3c80e6;
+    position: relative;
+    height: 39px;
+    width: 100%;
+    background-color: #3c80e6;
+    margin-bottom: 16px;
+}
+.inner-triangle{
+    border-left: 25px solid transparent;
+    border-right: 25px solid #FFF;
+    border-top: 25px solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+}
+.inner-triangle > i{
+    position: absolute;
+    top: -18px;
+    left: 12px;
+    color: #3c80e6;
+}
+.outer-triangle{
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+}
+.chooseTxt{
+    color: #FFF;
+    line-height: 39px;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+}
+
+.nochooseborder{
+    background-color: #EEF7FF;
+    border: 1px solid transparent;
+}
+.nochooseColor{
+    color: #585858;
+}
+.nochoose{
+    display: none;
+}
+
+#yc_reason textarea{
+    border: 1px solid #eee;
+    width: 100%;
+    height: 110px;
+    color: #bbb;
+    padding: 10px;
+    font-size: 15px;
+}
+
+
+
+
+#AllInfoBorder{
+    margin-top: 49px;
+    line-height: 30px;
+    padding: 10px;
+    background-color: #fff;
+}
+.AllInfoBorderItem{
+    position: relative;
+}
+
+
+.AllInfoTxt{
+    font-size: 14px;
+    font-weight: bold;
+    color: #585858;
+}
+.AllInfoValue{
+    font-size: 14px;
+    color: #888;
+}
+.blueblock {
+    width: 6px;
+    height: 20px;
+    background-color: #517FF3;
+    border-radius: 2px;
+    float: left;
+    margin: 5px 12px 0 15px;
+}
+
+#changexunjianshituBorder{
+    position: relative;
+}
+#mapBorder{
+    height: 300px;
+}
+#changexunjianshitu{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 996;
+}
+
+#shixiangList{
+    background-color: #fff;
+}
+.shixiangListItem{
+    height: 65px;
+}
+.shixiangListItemLeft{
+    width: 15%;
+    height: 65px;
+    float: left;
+}
+.shixiangListItemIndex{
+    width: 60%;
+    margin-left: 20%;
+    height: 34px;
+    text-align: center;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: #517FF3;
+    color: #fff;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px #bbb;
+}
+
+.shixiangListItemRight{
+    width: 85%;
+    float: right;
+}
+.shixiangName{
+    line-height: 38px;
+    font-size: 14px;
+    color: #585858;
+}
+.shixiangLujing{
+    line-height: 18px;
+    font-size: 12px;
+    color: #888;
+}
+
+.shixiangLujingTxt{
+    color: #aaa;
+}
+
+.shixiangLujingValue{
+
+}
+
+
+
+
+#shixiangList>li{
+    background-color: #FFF;
+}
+
+#shixiangList>li:nth-of-type(odd){
+    background-color: #EEF7FF;
+}
+
+
+
+
+
+.editState{
+    position: absolute;
+    top: 13px;
+    right: 11px;
+}
+.editStateTxt{
+    float: right;
+    color: #888;
+}
+.editStatePic{
+    float: right;
+    width: 14px;
+    height: 14px;
+    margin-top: 1.5px;
+}
+.editStatePic img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+.verticalAlign{
+    width: 80%;
+    margin-left: 10%;
+    position: fixed;
+    height: 260px;
+    border-radius: 4px;
+    top: 25%;
+    background-color: #fff;
+    z-index: 999;
+}
+.allmask {
+    display: none;
+    z-index: 998;
+    margin-top: 0px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.3;
+}
+
+
+
+#tc_ycsb{
+    display: none;
+}
+#ycImg{
+    width: 85px;
+    height: 85px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+#ycImg img{
+    width: 100%;
+    height: 100%;
+}
+#ycTxt{
+    text-align: center;
+    font-size: 22px;
+    color: #585858;
+    line-height: 80px;
+}
+#yc_btns{
+    color: #fff;
+    width: 180px;
+    margin: 0 auto;
+}
+#have_yc_btn{
+    width: 80px;
+    height: 30px;
+    background-color: #F17C7C;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    float: left;
+    font-size: 15px;
+}
+#no_yc_btn{
+    width: 80px;
+    margin-left: 20px;
+    height: 30px;
+    background-color: #517FF3;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    float: left;
+    font-size: 15px;
+}
+
+
+
+
+
+
+#tc_map{
+    display: none;
+    position: relative；
+}
+#tc_baidu_map{
+    height: 205px;
+}
+#map_btns{
+    color: #fff;
+    width: 180px;
+    margin: 0 auto;
+    margin-top: 13px;
+}
+#have_map_btn{
+    width: 80px;
+    height: 30px;
+    background-color: #517FF3;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    float: left;
+    font-size: 15px;
+}
+#no_map_btn{
+    width: 80px;
+    margin-left: 20px;
+    height: 30px;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    float: left;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+#tc_yctx{
+    display: none;
+    width: 80%;
+    margin-left: 10%;
+    position: fixed;
+    height: 340px;
+    border-radius: 4px;
+    top: 20%;
+    background-color: #fff;
+    z-index: 999;
+    padding: 15px;
+}
+#tc_yctx_btns{
+    color: #fff;
+    width: 180px;
+    margin: 0 auto;
+    margin-top: 3px;
+}
+#have_tc_yctx_btn{
+    width: 80px;
+    height: 30px;
+    background-color: #517FF3;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    float: left;
+    font-size: 15px;
+}
+#no_tc_yctx_btn{
+    width: 80px;
+    margin-left: 20px;
+    height: 30px;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 15px;
+    float: left;
+    font-size: 15px;
+}
+
+
+
+
+
+
+.anchorBL{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.chooseOuterB{
+    float: left;
+    height: 16px;
+    width: 16px;
+    border: 1px solid #517FF3;
+    background-color: transparent;
+}
+.chooseInnerB{
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+.choosedInner{
+    background-color: #517FF3;
+}
+.machineTxt{
+    float: left;
+    line-height: 15px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #888;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.machineImg{
+    width: 17px;
+    height: 17px;
+    float: left;
+}
+.machineImg img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+#locationIcon{
+    width: 26px;
+    position: absolute;
+    z-index: 10000000;
+    left: 47%;
+    top: 90px;
+}
+
+#locationIcon img{
+    width: 100%;
+}

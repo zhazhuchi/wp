@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>信息订阅</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <link rel="stylesheet" type="text/css" href="./css/ydui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/mui.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/libs/mui.picker.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/infosubcenter.css"/>
+</head>
+<body>
+
+    <div class="item">
+        <div class="itemTitle">
+            <div class="blueblock"></div>
+            <div class="itemTitleTxt">分类选择</div>
+            <div class="fenggexian"><img src="./img/fengge.png"></div>
+        </div>
+        <div class="itemContent" style="margin-top:-14px;">
+            <div id="J_Tab" class="m-tab">
+                <ul class="tab-nav" id="tabWidth">
+                    <li class="tab-nav-item tab-active"><a href="javascript:;">监测项目</a></li>
+                    <li class="tab-nav-item"><a href="javascript:;">监测仪器</a></li>
+                    <li class="tab-nav-item"><a href="javascript:;">监测部位</a></li>
+                </ul>
+                <div class="tab-panel">
+                    <div id="topChoose1" class="tab-panel-item tab-active" style="margin-top:14px;"></div>
+                    <div id="topChoose2" class="tab-panel-item" style="margin-top:14px;"></div>
+                    <div id="topChoose3" class="tab-panel-item" style="margin-top:14px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="itemTitle">
+            <div class="blueblock"></div>
+            <div class="itemTitleTxt">异常推送</div>
+            <div class="fenggexian"><img src="./img/fengge.png"></div>
+        </div>
+        <div class="itemContent" id="YCTUISONGcontent"></div>
+    </div>
+
+    <div class="item">
+        <div class="itemTitle">
+            <div class="blueblock"></div>
+            <div class="itemTitleTxt">信息推送</div>
+            <div class="fenggexian"><img src="./img/fengge.png"></div>
+        </div>
+        <div class="itemContent">
+
+            <div class="InfosubBorder clearfix">
+                <div class="infoSubOne clearfix xxts1">
+                    <div class="infoSubOneGou"><img src="./img/baigou.png"></div>
+                    <div class="infoSubOneGouTxt">&nbsp;&nbsp;日报</div>
+                </div>
+                <div class="infoSubTwo clearfix">时间设置：</div>
+                <div class="infoSubThree clearfix" id="xxtsrbsj">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">12:00</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="InfosubBorder clearfix">
+                <div class="infoSubOne clearfix xxts2">
+                    <div class="infoSubOneGou"><img src="./img/baigou.png"></div>
+                    <div class="infoSubOneGouTxt">&nbsp;&nbsp;周报</div>
+                </div>
+                <div class="infoSubTwo clearfix">时间设置：</div>
+                <div class="infoSubThree clearfix">
+                    <div id="xxtszbzhouji" class="infoSubThreeBorder clearfix" style="width: 48%">
+                        <div class="infoSubThreeValue">周一</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                    <div id="xxtszbsj" class="infoSubThreeBorder clearfix" style="width: 48%;margin-left: 4%;">
+                        <div class="infoSubThreeValue">12:00</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="itemTitle">
+            <div class="blueblock"></div>
+            <div class="itemTitleTxt">报告推送</div>
+            <div class="fenggexian"><img src="./img/fengge.png"></div>
+        </div>
+        <div class="itemContent">
+            <div class="InfosubBorder clearfix">
+                <div class="infoSubOne clearfix" id="bgts_r_z_y_n_1">
+                    <div class="infoSubOneGou"><img src="./img/baigou.png"></div>
+                    <div class="infoSubOneGouTxt">&nbsp;&nbsp;日报</div>
+                </div>
+                <div class="infoSubTwo clearfix">时间设置：</div>
+                <div class="infoSubThree clearfix" id="bgts_r">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">12:00</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="InfosubBorder clearfix">
+                <div class="infoSubOne clearfix" id="bgts_r_z_y_n_2">
+                    <div class="infoSubOneGou"><img src="./img/baigou.png"></div>
+                    <div class="infoSubOneGouTxt">&nbsp;&nbsp;周报</div>
+                </div>
+                <div class="infoSubTwo clearfix">时间设置：</div>
+                <div class="infoSubThree clearfix">
+                    <div id="bgts_z1" class="infoSubThreeBorder clearfix" style="width: 48%">
+                        <div class="infoSubThreeValue">周一</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                    <div id="bgts_z2" class="infoSubThreeBorder clearfix" style="width: 48%;margin-left: 4%;">
+                        <div class="infoSubThreeValue">12:00</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="InfosubBorder clearfix">
+                <div class="infoSubOne clearfix" id="bgts_r_z_y_n_3">
+                    <div class="infoSubOneGou"><img src="./img/baigou.png"></div>
+                    <div class="infoSubOneGouTxt">&nbsp;&nbsp;月报</div>
+                </div>
+    
+                <div class="infoSubTwo clearfix">时间设置：</div>
+    
+                <div class="infoSubThree clearfix"  id="bgts_y">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">1号</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+
+                <div class="dytsborder yumochoose" style="margin-top:13px;" id="bgts_month1">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末最后一天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+                <div class="dytsborder dytsneedmargin yumochoose" id="bgts_month2">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末倒数第二天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+                <div class="dytsborder yumochoose" id="bgts_month3">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末倒数第三天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+
+                <div class="infoSubThree clearfix" id="bgts_month_time">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">12:00</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="InfosubBorder clearfix">
+                <div class="infoSubOne clearfix" id="bgts_r_z_y_n_4">
+                    <div class="infoSubOneGou"><img src="./img/baigou.png"></div>
+                    <div class="infoSubOneGouTxt">&nbsp;&nbsp;年报</div>
+                </div>
+
+                <div class="infoSubTwo clearfix">时间设置：</div>
+
+                <div class="infoSubThree clearfix" id="bgts_n_y">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">一月</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+
+                <div class="infoSubThree clearfix" style="margin-top:13px;" id="bgts_n_r">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">1号</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+
+                <div class="dytsborder yumochoose5" style="margin-top:13px;" id="bgts_n_r_month1">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末最后一天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+                <div class="dytsborder dytsneedmargin yumochoose5" id="bgts_n_r_month2">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末倒数第二天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+                <div class="dytsborder yumochoose5" id="bgts_n_r_month3">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末倒数第三天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+
+                <div class="infoSubThree clearfix" id="bgts_n_month_time">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">12:00</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div id="reportSenderBorder"><div id="reportSender">立即发送</div></div> -->
+        </div>
+    </div>
+
+    <div class="item" style="padding-bottom:44px;">
+        <div class="itemTitle">
+            <div class="blueblock"></div>
+            <div class="itemTitleTxt">任务推送</div>
+            <div class="fenggexian"><img src="./img/fengge.png"></div>
+        </div>
+        <div class="itemContent">
+            <div id="rwtscontentborder"></div>
+            <div class="InfosubBorder clearfix">
+                <div class="infoSubOne clearfix" id="rwts_r_z_y_n_1">
+                    <div class="infoSubOneGou"><img src="./img/baigou.png"></div>
+                    <div class="infoSubOneGouTxt">&nbsp;&nbsp;日报</div>
+                </div>
+
+                <div class="infoSubTwo clearfix">时间设置：</div>
+
+                <div class="infoSubThree clearfix" id="rwts_r">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">12:00</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="InfosubBorder clearfix">
+                <div class="infoSubOne clearfix" id="rwts_r_z_y_n_2">
+                    <div class="infoSubOneGou"><img src="./img/baigou.png"></div>
+                    <div class="infoSubOneGouTxt">&nbsp;&nbsp;周报</div>
+                </div>
+
+                <div class="infoSubTwo clearfix">时间设置：</div>
+
+                <div class="infoSubThree clearfix">
+                    <div id="rwts_z1" class="infoSubThreeBorder clearfix" style="width: 48%">
+                        <div class="infoSubThreeValue">周一</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                    <div id="rwts_z2" class="infoSubThreeBorder clearfix" style="width: 48%;margin-left: 4%;">
+                        <div class="infoSubThreeValue">12:00</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="InfosubBorder clearfix">
+                <div class="infoSubOne clearfix" id="rwts_r_z_y_n_3">
+                    <div class="infoSubOneGou"><img src="./img/baigou.png"></div>
+                    <div class="infoSubOneGouTxt">&nbsp;&nbsp;月报</div>
+                </div>
+
+                <div class="infoSubTwo clearfix">时间设置：</div>
+
+                <div class="infoSubThree clearfix" id="rwts_y">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">1号</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+
+                <div class="dytsborder yomochoose2" style="margin-top:13px;" id="rwts_month1">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末最后一天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+                <div class="dytsborder dytsneedmargin yomochoose2" id="rwts_month2">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末倒数第二天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+                <div class="dytsborder yomochoose2" id="rwts_month3">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末倒数第三天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+
+                <div class="infoSubThree clearfix" id="rwts_month_time">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">12:00</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="InfosubBorder clearfix">
+                <div class="infoSubOne clearfix" id="rwts_r_z_y_n_4">
+                    <div class="infoSubOneGou"><img src="./img/baigou.png"></div>
+                    <div class="infoSubOneGouTxt">&nbsp;&nbsp;年报</div>
+                </div>
+
+                <div class="infoSubTwo clearfix">时间设置：</div>
+
+                <div class="infoSubThree clearfix" id="rwts_n_y">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">一月</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+
+                <div class="infoSubThree clearfix" style="margin-top:13px;" id="rwts_n_r">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">1号</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+
+                <div class="dytsborder yumochoose10" style="margin-top:13px;" id="rwts_n_r_month1">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末最后一天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+                <div class="dytsborder dytsneedmargin yumochoose10" id="rwts_n_r_month2">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末倒数第二天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+                <div class="dytsborder yumochoose10" id="rwts_n_r_month3">
+                    <div class="container nochooseborder">
+                        <div class="chooseTxt nochooseColor">月末倒数第三天</div>
+                        <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                        <div class="outer-triangle nochoose"></div>
+                    </div>
+                </div>
+
+                <div class="infoSubThree clearfix" id="rwts_n_month_time">
+                    <div class="infoSubThreeBorder clearfix" style="width: 100%">
+                        <div class="infoSubThreeValue">12:00</div>
+                        <div class="infoSubThreeImg"><img src="./img/down.png"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div id="reportSenderBorder"><div id="reportSender">立即发送</div></div> -->
+        </div>
+    </div>
+    <div id="saveSetting">保存设置</div>
+</body>
+</html>
+
+<script id="JCXMItemTmpl" type="x-tmpl-mustache">
+    <div class="dytsborder JCXMborder JCXMall">
+        <div class="container">
+            <div class="chooseTxt">全部</div>
+            <div class="inner-triangle"><i class="icon-checkoff"></i></div>
+            <div class="outer-triangle"></div>
+        </div>
+    </div>
+    {{#item}}
+        <div class="dytsborder JCXMborder" id="{{ID}}">
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">{{Name}}</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+    {{/item}}
+</script>
+
+<script id="JCYQItemTmpl" type="x-tmpl-mustache">
+    <div class="dytsborder JCYQborder JCYQall">
+        <div class="container">
+            <div class="chooseTxt">全部</div>
+            <div class="inner-triangle"><i class="icon-checkoff"></i></div>
+            <div class="outer-triangle"></div>
+        </div>
+    </div>
+    {{#item}}
+        <div class="dytsborder JCYQborder" id="{{ID}}">
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">{{Name}}</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+    {{/item}}
+</script>
+
+<script id="JCBWItemTmpl" type="x-tmpl-mustache">
+    <div class="dytsborder JCBWborder JCBWall">
+        <div class="container">
+            <div class="chooseTxt">全部</div>
+            <div class="inner-triangle"><i class="icon-checkoff"></i></div>
+            <div class="outer-triangle"></div>
+        </div>
+    </div>
+    {{#item}}
+        <div class="dytsborder JCBWborder" id="{{ID}}">
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">{{Name}}</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+    {{/item}}
+</script>
+
+<script id="YCTUISONGItemTmpl" type="x-tmpl-mustache">
+    <div class="dytsborder YCTUISONGborder YCTUISONGall">
+        <div class="container">
+            <div class="chooseTxt">全部</div>
+            <div class="inner-triangle"><i class="icon-checkoff"></i></div>
+            <div class="outer-triangle"></div>
+        </div>
+    </div>
+    {{#item}}
+        <div class="dytsborder YCTUISONGborder" id={{ID}}>
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">{{Level}}</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+    {{/item}}
+</script>
+
+<script id="RENWUTSItemTmpl" type="x-tmpl-mustache">
+    {{#item}}
+        <div class="dytsborder dytsneedmargin RENWUTSborder" id={{ID}}>
+            <div class="container nochooseborder">
+                <div class="chooseTxt nochooseColor">{{DutyName}}</div>
+                <div class="inner-triangle nochoose"><i class="icon-checkoff"></i></div>
+                <div class="outer-triangle nochoose"></div>
+            </div>
+        </div>
+    {{/item}}
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/ydui/ydui.flexible.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/swiper.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mustache.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.picker.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.poppicker.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/libs/mui.dtpicker.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/infosubcenter.js"></script>

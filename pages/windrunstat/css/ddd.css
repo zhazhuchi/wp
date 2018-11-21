@@ -1,0 +1,154 @@
+@-webkit-keyframes rotation{
+    from {
+        -webkit-transform: rotate(0deg);
+        }
+    to {
+        -webkit-transform: rotate(360deg);
+        }
+}
+.rotate_animate_slow{
+    animation: rotation 6s linear infinite;
+}
+.rotate_animate_normal{
+    animation: rotation 4s linear infinite;
+}
+.rotate_animate_fast{
+    animation: rotation 2s linear infinite;
+}
+
+
+
+
+
+@-webkit-keyframes huangdong {
+    0%  {
+        -webkit-transform:translate(0px , 0px) rotate(0deg);
+        transform-origin: center bottom;
+    }
+    25% {
+        -webkit-transform:translate(0px , 0px) rotate(5deg);
+        transform-origin: center bottom;
+    }
+    50% {
+        -webkit-transform:translate(0px , 0px) rotate(0deg);
+        transform-origin: center bottom;
+    }
+    75% {
+        -webkit-transform:translate(0px , 0px) rotate(-5deg);
+        transform-origin: center bottom;
+    }
+    100% {
+        -webkit-transform:translate(0px , 0px) rotate(0deg);
+        transform-origin: center bottom;
+    }
+}
+.huangdong_animate_slow{
+    animation: huangdong 6s linear infinite;
+}
+.huangdong_animate_normal{
+    animation: huangdong 4s linear infinite;
+}
+.huangdong_animate_fast{
+    animation: huangdong 2s linear infinite;
+}
+
+
+
+
+
+@-webkit-keyframes fy_huangdong_stop {
+    0%  {
+        -webkit-transform: translate(0px , 0px) rotate(0deg);
+        transform-origin: center bottom;
+    }
+    25% {
+        -webkit-transform: translate(0px , 0px) rotate(10deg);
+        transform-origin: center bottom;
+    }
+    50% {
+        -webkit-transform: translate(0px , 0px) rotate(0deg);
+        transform-origin: center bottom;
+    }
+    75% {
+        -webkit-transform: translate(0px , 0px) rotate(-10deg);
+        transform-origin: center bottom;
+    }
+    100% {
+        -webkit-transform: translate(0px , 0px) rotate(0deg);
+        transform-origin: center bottom;
+    }
+}
+.fy_huangdong_stop_animate_slow{
+    animation: fy_huangdong_stop 6s linear infinite;
+}
+.fy_huangdong_stop_animate_normal{
+    animation: fy_huangdong_stop 4s linear infinite;
+}
+.fy_huangdong_stop_animate_fast{
+    animation: fy_huangdong_stop 2s linear infinite;
+}
+
+
+@-webkit-keyframes fy_huangdong_rotate {
+    0%  {-webkit-transform: translate(0px , 0px) rotate(0deg);}
+    25% {-webkit-transform: translate(27px , -1px) rotate(90deg);}
+    50% {-webkit-transform: translate(0px , 0px) rotate(180deg);}
+    75% {-webkit-transform: translate(-27px , -1px) rotate(270deg);}
+    100% {-webkit-transform: translate(0px , 0px) rotate(360deg);}
+}
+.fy_huangdong_rotate_animate_slow{
+    animation: fy_huangdong_rotate 6s linear infinite;
+}
+.fy_huangdong_rotate_animate_normal{
+    animation: fy_huangdong_rotate 4s linear infinite;
+}
+.fy_huangdong_rotate_animate_fast{
+    animation: fy_huangdong_rotate 2s linear infinite;
+}
+
+
+
+
+
+
+
+
+@-webkit-keyframes moveX {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(-100px);
+    }
+}
+
+@-webkit-keyframes movefish {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(400px);
+    }
+}
+
+@-webkit-keyframes moveXX {
+    0% {
+        transform: translateX(-100px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.fish{
+    animation: movefish 5s linear infinite;
+}
+.bluebo{
+    animation: moveX 2s linear infinite;
+}
+.whitebo{
+    animation: moveXX 2s linear infinite;
+}

@@ -1,0 +1,354 @@
+#heade{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.item{
+    background-color: #FFF;
+    padding-top: 0px;
+}
+.itemTitle{
+    height:41px;
+    padding-top: 15px;
+}
+.blueblock{
+    width: 7px;
+    height: 24px;
+    background-color: #517FF3;
+    border-radius: 2px;
+    float: left;
+    margin: 0 12px 0 15px;
+}
+.itemTitleTxt{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #000;
+    float: left;
+    width: 19%;
+}
+.fenggexian{
+    margin-top: 10px;
+    float: left;
+    width: 68%;
+    height: 9px;
+}
+.fenggexian img{
+    width: 100%;
+    height: 100%;
+}
+
+.itemContent{
+    margin: 0 15px;
+    line-height: 30px;
+    padding-top: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.checkPlaceBorder{
+    border: 1px solid #ddd;
+    height: 33px;
+    float: left;
+    margin-bottom: 12px;
+}
+.checkPlaceValue{
+    float: left;
+    line-height: 33px;
+    margin-left: 10px;
+    color: #888;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+
+
+
+
+
+
+
+
+#map_border{
+    height: 280px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.editState{
+    position: absolute;
+    top: 13px;
+    right: 11px;
+}
+.editStateTxt{
+    float: right;
+    color: #888;
+    font-size: 14px;
+}
+.editStatePic{
+    float: right;
+    width: 14px;
+    height: 14px;
+    margin-top: 1.5px;
+}
+.editStatePic img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#lastBtn{
+    position: fixed;
+    bottom: 0;
+    height: 44px;
+    color: #fff;
+    width: 100%;
+    font-size: 16px;
+    z-index: 1000;
+}
+#confirmSubmit{
+    background-color: #517FF3;
+    width: 100%;
+    float: left;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul{
+    list-style: none;
+    text-align: center;
+}
+
+#allGrid{
+    margin-bottom: 55px;
+    font-size: 14px;
+}
+
+#allGrid>li{
+    height: 48px;
+    line-height: 48px;
+    clear: both;
+}
+
+#allGrid>li:not(.gridTitle){
+    background-color: #FFF;
+}
+
+#allGrid>li:not(.gridTitle):nth-of-type(odd){
+    background-color: #EEF7FF;
+}
+
+.gridTitle{
+    background-color: #517FF3;
+    color: #FFF;
+}
+
+.fanNum{
+    display: block;
+    width: 12%;
+    float: left;
+    color: #585858;
+}
+.listItem{
+    display: block;
+    width: 16.5%;
+    float: left;
+    text-align: center;
+    height: 48px;
+    color: #585858;
+}
+.listItem img{
+    width: 15px;
+    margin: 0 auto;
+    margin-top: 16px;
+}
+
+
+.listTitle1{
+    display: block;
+    width: 12%;
+    float: left;
+}
+.listTitle{
+    display: block;
+    width: 16.5%;
+    float: left;
+}
+.listTitle2{
+    width: 22%;
+    display: block;
+    float: left;
+}
+.listItem2{
+    width: 22%;
+    display: block;
+    float: left;
+}
+
+.listItem3{
+    display: block;
+    width: 16.5%;
+    float: left;
+    text-align: center;
+    height: 48px;
+    color: #585858;
+}
+.listItem3 img{
+    width: 15px;
+    margin: 0 auto;
+    margin-top: 16px;
+}
+
+
+
+
+
+
+
+.anchorBL{
+    display: none;
+}
+
+
+
+
+.needdDecorTxt{
+    text-decoration: underline;
+    color: #517FF3;
+}
+
+
+
+
+
+
+#positionBorder{
+    position: relative;
+}
+#map_contoller{
+    position: absolute;
+    left: 13px;
+    top: 13px;
+    z-index: 997;
+}
+.chooseOuterB{
+    float: left;
+    height: 16px;
+    width: 16px;
+    border: 1px solid #517FF3;
+    background-color: transparent;
+}
+.chooseInnerB{
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    margin-top: 2px;
+    margin-left: 2px;
+}
+.choosedInner{
+    background-color: #517FF3;
+}
+.machineTxt{
+    float: left;
+    line-height: 16px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #585858;
+    margin-left: 7px;
+    margin-right: 7px;
+}

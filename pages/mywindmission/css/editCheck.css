@@ -1,0 +1,400 @@
+.item{
+    background-color: #FFF;
+    padding-top: 6px;
+    margin-bottom: 15px;
+}
+.itemTitle{
+    height:45px;
+    padding-top: 9px;
+    margin-bottom: 5px;
+}
+.blueblock{
+    width: 7px;
+    height: 24px;
+    background-color: #517FF3;
+    border-radius: 2px;
+    float: left;
+    margin: 0 12px 0 15px;
+}
+.itemTitleTxt{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #000;
+    float: left;
+    width: 19%;
+}
+.fenggexian{
+    margin-top: 10px;
+    float: left;
+    width: 68%;
+    height: 9px;
+}
+.fenggexian img{
+    width: 100%;
+    height: 100%;
+}
+
+.itemContent{
+    margin: 0 15px;
+    line-height: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+.SCTPBorder{
+    height: 88px;
+    width: 31%;
+    margin-right: 2.32%;
+    float: left;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.deleteImg{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    height: 20px;
+    width: 20px;
+    font-size: 25px;
+}
+.deleteImg img{
+    width: 100%;
+    height: 100%;
+}
+
+.SCTPBorder img{
+    width: 100%;
+    height: 100%;
+}
+.addSCTPBorder{
+    padding-top: 20px;
+    height: 88px;
+    width: 31%;
+    margin-right: 2.32%;
+    float: left;
+    margin-bottom: 10px;
+}
+.addSCTPBorder img{
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+
+
+
+.checkPlaceBorder{
+    border: 1px solid #bbb;
+    height: 36px;
+    float: left;
+    margin-bottom: 12px;
+}
+.checkPlaceValue{
+    float: left;
+    line-height: 36px;
+    margin-left: 10px;
+    color: #888;
+}
+.checkPlaceImg{
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin-top: 8px;
+    margin-right: 10px;
+}
+.checkPlaceImg img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+#showState{
+    width: 200px;
+    height: 35px;
+    line-height: 35px;
+    background-color: #517FF3;
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.fj_info_name{
+    font-size: 16px;
+    color: #517FF3;
+    border-bottom: 1px solid #ddd;
+}
+.fj_info_list{
+    font-size: 14px;
+}
+.fj_info_list_item{
+    height: 45px;
+    line-height: 45px;
+}
+.fj_info_list_item_key{
+    float: left;
+    color: #585858;
+}
+.fj_info_list_item_value{
+    float: right;
+}
+
+
+
+
+
+
+
+.HBtns{
+    width: 114px;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin-top: 7px;
+}
+.succState{
+    float: left;
+    width: 54px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    margin-top: 2px;
+    margin-left: 2px;
+    color: #585858;
+}
+.failState{
+    float: left;
+    width: 54px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    margin-top: 2px;
+    margin-right: 1px;
+    color: #aaa;
+}
+.fjErr{
+    background-color: #F17C7C;
+    border-radius: 12px;
+    color: #fff;
+}
+.fjSuc{
+    background-color: #6DC16D;
+    border-radius: 12px;
+    color: #fff;
+}
+
+
+
+
+
+
+
+textarea{
+    border: 1px solid #ddd;
+    width: 100%;
+    height: 150px;
+    color: #bbb;
+    padding: 6px;
+    font-size: 15px;
+}
+
+
+
+
+
+
+#addPicBtn{
+    font-size: 16px;
+    color: #517FF3;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.addSCTPBorder{
+    padding-top: 20px;
+    height: 88px;
+    width: 31%;
+    margin-right: 2.32%;
+    float: left;
+    margin-bottom: 10px;
+}
+.addSCTPBorder img{
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+
+.CLZTborder{
+    width: 48%;
+    float: left;
+    margin-bottom: 10px;
+}
+.container{
+    border: 1px solid #3c80e6;
+    position: relative;
+    height: 39px;
+    width: 100%;
+    background-color: #3c80e6;
+}
+.inner-triangle{
+    border-left: 25px solid transparent;
+    border-right: 25px solid #FFF;
+    border-top: 25px solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+}
+.inner-triangle > i{
+    position: absolute;
+    top: -21px;
+    left: 11px;
+    color: #3c80e6;
+}
+.outer-triangle{
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+}
+.chooseTxt{
+    color: #FFF;
+    line-height: 39px;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+}
+
+.nochooseborder{
+    background-color: #EEF7FF;
+    border: 1px solid transparent;
+}
+.nochooseColor{
+    color: #585858;
+}
+.nochoose{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+#lastBtn{
+    position: fixed;
+    bottom: 0;
+    height: 44px;
+    color: #fff;
+    width: 100%;
+    font-size: 16px;
+    z-index: 998;
+}
+#confirmSubmit{
+    background-color: #517FF3;
+    width: 100%;
+    float: left;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+}
+
+
+
+
+
+#hiddeninputfile{
+    position: fixed;
+    top: -200px;
+    left: -200px;
+    z-index: 0;
+}
+.addSCTPBorder{
+    text-align: center;
+    position: relative;
+}
+#addSCTPBorderInput{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1499;
+}

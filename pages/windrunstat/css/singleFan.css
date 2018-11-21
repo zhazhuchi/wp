@@ -1,0 +1,454 @@
+html, body {
+    position: relative;
+    height: 100%;
+}
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color:#000;
+    margin: 0;
+    padding: 0;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    background: #eee;
+}
+
+
+
+
+#headerfixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000000;
+    width: 100%;
+}
+
+
+
+
+
+.item{
+    background-color: #FFF;
+    padding-top: 6px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.itemTitle{
+    height:45px;
+    padding-top: 9px;
+    margin-bottom: 5px;
+}
+.blueblock{
+    width: 7px;
+    height: 24px;
+    background-color: #517FF3;
+    border-radius: 2px;
+    float: left;
+    margin: 0 12px 0 15px;
+}
+.itemTitleTxt{
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #000;
+    float: left;
+    width: 19%;
+}
+.fenggexian{
+    margin-top: 10px;
+    float: left;
+    width: 68%;
+    height: 9px;
+}
+.fenggexian img{
+    width: 100%;
+    height: 100%;
+}
+
+.itemContent{
+    margin: 0 15px;
+}
+
+
+.itemsborder{
+    height: 35px;
+    border-bottom: 1px solid #ddd;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 35px;
+    color: #585858;
+}
+.keykey{
+    float: left;
+}
+.valuevalue{
+    float: right;
+}
+
+
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+
+
+
+
+.bottomItemBorder{
+    border: 1px solid rgb(205, 225, 255);
+    border-radius: 4px;
+    font-size: 14px;
+    color: #585858;
+    padding: 6px;
+    margin-bottom: 10px;
+}
+.dianhao{
+
+}
+.secondLine{
+
+}
+.cedianweizhi{
+    float: left;
+}
+.yiqileixing{
+    float: right;
+}
+.thirdLine{
+
+}
+.jiancexiangmu{
+    float: left;
+}
+.jiancechengguo{
+    float: right;
+}
+
+
+
+
+
+
+#outerBorder{
+    position: relative;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+}
+#dongtu{
+    width: 100%;
+    height: 100%;
+}
+#asd{
+    background: url(../img/background.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+#topChoose{
+    position: relative;
+    z-index: 100;
+}
+#chooseShowType{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 98px;
+    z-index: 100000;
+}
+#chooseShowTxt{
+    text-align: center;
+    color: #585858;
+    font-size: 13px;
+    line-height: 20px;
+    width: 98px;
+    clear: both;
+    height: 43px;
+    overflow: hidden;
+}
+#chooseShowItemsBorder{
+    clear: both;
+    display: none;
+}
+#chooseShowItems{
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.chooseShowItem{
+    height: 38px;
+    line-height: 38px;
+    width: 98px;
+    background-color: #FFF;
+    display: block;
+    color: #585858;
+    font-size: 14px;
+    text-align: center;
+}
+
+.chooseShowItemActive{
+    background-color: #517FF3;
+    color: #FFF;
+}
+
+
+.downuptxt{
+    float: left;
+    padding-left: 25px;
+    font-size: 13px;
+    line-height: 45px;
+}
+.downIcon{
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin-top: 16px;
+    margin-left: 3px;
+}
+.downIcon img{
+    width: 12px;
+}
+
+.upIcon{
+    float: left;
+    width: 11px;
+    height: 11px;
+    margin-top: 16px;
+    margin-left: 3px;
+}
+.upIcon img{
+    width: 11px;
+}
+.updownchoose{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+#state1{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+#state1_fy{
+    position: absolute;
+    height: 40%;
+    left: 50%;
+    bottom: 48%;
+    transform: translate(-50%, 0);
+    z-index: 2000;
+}
+#state1_fy img{
+    height: 100%;
+}
+
+#state1_zhu{
+    position: absolute;
+    height: 38%;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 95;
+}
+#state1_zhu img{
+    height: 100%;
+}
+
+
+#state1_gan{
+    position: absolute;
+    height: 11%;
+    bottom: 25%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 95;
+}
+#state1_gan img{
+    height: 100%;
+}
+
+#state1_bluel{
+    position: absolute;
+    bottom: 29.9%;
+    width: 100%;
+    height: 21px;
+    overflow: hidden;
+    z-index: 100;
+}
+#state1_bluel ul{
+    height: 100%;
+    width: 878px;
+}
+#state1_bluel li{
+    float: left;
+    height: 100%;
+    width: 438px;
+}
+#state1_bluel li img{
+    height: 100%;
+    width: 100%;
+}
+
+#state1_whitel{
+    position: absolute;
+    width: 100%;
+    bottom: 30%;
+    height: 21px;
+    overflow: hidden;
+    z-index: 99;
+}
+#state1_whitel ul{
+    width: 878px;
+    height: 100%;
+}
+#state1_whitel li{
+    float: left;
+    height: 100%;
+    width: 438px;
+}
+#state1_whitel li img{
+    height: 100%;
+    width: 100%;
+}
+
+#state1_see{
+    position: absolute;
+    height: 30%;
+    background-color: #6C9DEC;
+    bottom: 0;
+    width: 100%;
+    z-index: 997;
+}
+
+#state1_fish{
+    position: absolute;
+    height: 20%;
+    width: 100%;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 10000;
+}
+#state1_fish ul{
+    width: 3000px;
+    height: 100%;
+}
+#state1_fish li{
+    float: left;
+    height: 100%;
+    width: 438px;
+}
+#state1_fish li img{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+#allStatus{
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    margin-top: 10%;
+    margin-left: 5%;
+    background:rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius:4px;
+    font-size: 14px;
+}
+#state1_see ul{
+
+}
+#state1_see li{
+    float: left;
+    font-size: 13px;
+    text-align: center;
+}
+#state1_see span.state1_see_key{
+
+}
+#state1_see span.state1_see_key{
+    
+}
+
+.flexbox{
+    display: flex;
+    justify-content: space-around;
+}
+
+#turnleft{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size:  17px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: 10%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.pointInfo{
+    height: 30px;
+    width: 80px;
+    position: absolute;
+    z-index: 99999
+}
+.point{
+    width: 8px;
+    height: 8px;
+    background-color: #aaa;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+}
+.pointTxt{
+    font-size: 12px;
+    line-height: 12px;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    color: #888;
+}
