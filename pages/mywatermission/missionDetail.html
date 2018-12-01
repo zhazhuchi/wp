@@ -24,6 +24,11 @@
             <div class="editStatePic"><img src="./img/edit.png"></div>
             <div class="editStateTxt">修改状态&nbsp;</div>
         </div>
+
+        <div class="editState2" id="xiugaizhuangtai2">
+            <div class="editStatePic2"><img src="./img/edit.png"></div>
+            <div class="editStateTxt2">完成&nbsp;</div>
+        </div>
     </header>
 
     <div id="AllInfoBorder">
@@ -40,12 +45,12 @@
         <div class="AllInfoBorderItem">
             <div class="blueblock"></div>
             <span class="AllInfoTxt">巡检人员：</span>
-            <span class="AllInfoValue" id="AllInfoValue2"></span>
+            <span class="AllInfoValue" id="AllInfoValue3"></span>
         </div>
         <div class="AllInfoBorderItem">
             <div class="blueblock"></div>
             <span class="AllInfoTxt">巡检时间：</span>
-            <span class="AllInfoValue" id="AllInfoValue3"></span>
+            <span class="AllInfoValue" id="AllInfoValue2"></span>
         </div>
     </div>
 
@@ -131,11 +136,13 @@
     {{#item}}
         <li issign="{{issign}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}" rowguid="{{RowGuid}}" class="shixiangListItem mui-table-view-cell" style="padding:0;width:100%">
 
-            <div class="mui-slider-right mui-disabled">
-                <a class="mui-btn mui-btn-green zcbtn" issign="{{issign}}" rowguid="{{RowGuid}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}">正常</a>
-                <a class="mui-btn mui-btn-red ycsbbtn" issign="{{issign}}" rowguid="{{RowGuid}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}">异常上报</a>
-                <a class="mui-btn mui-btn-green ycclbtn" issign="{{issign}}" rowguid="{{RowGuid}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}">异常处理</a>
-            </div>
+            {{#showSlider}}
+                <div class="mui-slider-right mui-disabled">
+                    <a class="mui-btn mui-btn-green zcbtn" issign="{{issign}}" rowguid="{{RowGuid}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}">正常</a>
+                    <a class="mui-btn mui-btn-red ycsbbtn" issign="{{issign}}" rowguid="{{RowGuid}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}">异常上报</a>
+                    <a class="mui-btn mui-btn-green ycclbtn" issign="{{issign}}" rowguid="{{RowGuid}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}">异常处理</a>
+                </div>
+            {{/showSlider}}
 
             <div class="mui-slider-handle" style="width:100%" issign="{{issign}}" statecolor="{{Color}}" lon="{{lon}}" lat="{{lat}}" ReportID="{{ReportID}}" StatusGuid="{{StatusGuid}}" rowguid="{{RowGuid}}" >
                 <div class="mui-table-cell">

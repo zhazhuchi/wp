@@ -52,8 +52,12 @@
             </div>
             <div class="itemContent clearfix">
 
-                <div class="checkPlaceBorder clearfix" style="width: 100%" id="xjryOuterBorder">
+                <div class="checkPlaceBorder clearfix" style="width: 80%" id="xjryOuterBorder">
                     <div class="checkPlaceValue" id="xjry"></div>
+                </div>
+
+                <div id="addpeople" style="width: 20%">
+                    <img src="./img/add.png">
                 </div>
 
             </div>
@@ -107,10 +111,10 @@
 <script id="dataListItemTmpl" type="x-tmpl-mustache">
     {{#item}}
         <li class="needOrder" id="{{ID}}">
-            <div class="fanNum">{{ordernum}}</div>
-            <div class="listItem" fjid="{{StationID}}" rowguid="{{WinpowerCheckID}}" PhotoID="{{PhotoID}}">{{stationname}}</div>
-            <div class="listItem" fjid="{{StationID}}" rowguid="{{WinpowerCheckID}}" PhotoID="{{PhotoID}}">{{ToTalCount}}</div>
-            <div class="listItem" fjid="{{StationID}}" rowguid="{{WinpowerCheckID}}" PhotoID="{{PhotoID}}">{{CountDescribe}}</div>
+            <div class="fanNum" style="color:{{CheckColor}}">{{ordernum}}</div>
+            <div class="listItem" style="color:{{CheckColor}}" fjid="{{StationID}}" rowguid="{{WinpowerCheckID}}" PhotoID="{{PhotoID}}">{{stationname}}</div>
+            <div class="listItem" style="color:{{CheckColor}}" fjid="{{StationID}}" rowguid="{{WinpowerCheckID}}" PhotoID="{{PhotoID}}">{{ToTalCount}}</div>
+            <div class="listItem" style="color:{{CheckColor}}" fjid="{{StationID}}" rowguid="{{WinpowerCheckID}}" PhotoID="{{PhotoID}}">{{CountDescribe}}</div>
             <div class="listItem2"><span class="needdDecorTxt edit" fjid="{{StationID}}" rowguid="{{WinpowerCheckID}}" PhotoID="{{PhotoID}}">编辑</span>&nbsp;&nbsp;<span class="needdDecorTxt del" fjid="{{StationID}}" rowguid="{{WinpowerCheckID}}">删除</span></div>
             {{#showpaixu}}
                 <div class="listItem3 moveicon">

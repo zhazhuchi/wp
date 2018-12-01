@@ -21,13 +21,30 @@ for(var i = 0 ; i < urlparr.length ; i++) {
 var openId = urlParam["openId"];
 var userguid = urlParam["userguid"];
 var missionguid = urlParam["missionguid"];
-
 var AuthDB = urlParam["AuthDB"];
+
+
+
+
+
+var taskname = urlParam["taskname"];
+var xjsj = urlParam["xjsj"];
+var adduserguid = urlParam["adduserguid"];
+var addusername = urlParam["username"];
+taskname = decodeURIComponent(taskname);
+
+
+
+
+
+
+
+
+
 
 
 var pretime = "";
 var posttime = "";
-
 var mapBorder = null;
 var standp = [];
 var userp = [];
@@ -153,6 +170,7 @@ function adjustOrderNum(){
 getDetail();
 function getDetail(){
     var requestData = {
+        "UserGuid":userguid,
         "DataBeaseID":AuthDB,
         "WinpowerDutyID":missionguid
     };
@@ -167,19 +185,45 @@ function getDetail(){
                 
                 var datas = data.ReturnInfo.list;
 
-                var rwmc = data.DutyArea[0].taskname;
-                var xjry = data.DutyArea[0].DisplayName;
-                var xjsj = data.DutyArea[0].InspectionTime;
+                var rwmcdetail = data.DutyArea[0].taskname;
+                var xjrydetail = data.DutyArea[0].DisplayName;
+                var xjsjdetail = data.DutyArea[0].InspectionTime;
+    
+                
+                
+                $("#chooseXJDate").text(xjsj);
+
+
+
+                if(taskname != "" && taskname != undefined && taskname != "undefined"){
+                    $("#taskname").val(taskname);
+                } else {
+                    $("#taskname").val(rwmcdetail);
+                }
+                
+                if(adduserguid != "" && adduserguid != undefined && adduserguid != "undefined"){
+                    $("#xjry").text(addusername);
+                } else {
+                    $("#xjry").text(xjrydetail);
+                    adduserguid = data.DutyArea[0].InspectorID;
+                }
+                
+                if(xjsj != "" && xjsj != undefined && xjsj != "undefined"){
+                    $("#chooseXJDate").text(xjsj);
+                } else {
+                    $("#chooseXJDate").text(xjsjdetail);
+                }
+
+
+
+
+
+
+
+
 
                 pretime = data.DutyArea[0].InspectionTime;
                 posttime = data.DutyArea[0].InspectionTime;
-    
-                if(xjry == "")
-                    xjry = "暂无巡检人员";
-    
-                $("#taskname").val(rwmc);
-                $("#xjry").text(xjry);
-                $("#chooseXJDate").text(xjsj);
     
                 var tmpDutyList = data.AreaCheckList;
 
@@ -328,7 +372,6 @@ function confirmSubmit(){
         "taskname":$("#taskname").val(),
         "OldInspectionTime":pretime,
         "NewInspectionTime":posttime,
-        "Status":"待办",
         "WinpowerDutyID":missionguid
     };
     $.ajax({
@@ -523,3 +566,17 @@ var showVConsole = Window.Config.showVConsole;
 if(showVConsole){
     document.write("<script src='../../js/libs/vconsole.min.js'><\/script>");
 }
+
+
+$("#addpeople").click(function(){
+    window.location.href = "./choosePeople.html?" + 
+        "openId=" + openId + 
+        "&userguid=" + userguid + 
+        "&taskname=" + taskname + 
+        "&xjsj=" + xjsj + 
+        "&adduserguid=" + adduserguid + 
+        "&AuthDB=" + AuthDB + 
+        "&process=update" + 
+        "&missionguid=" + missionguid
+        ;
+});

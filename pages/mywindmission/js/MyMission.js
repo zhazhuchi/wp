@@ -504,8 +504,8 @@ var AuthMoreFenDian = "";
     $("#newTaskBtn").click(function(){
         window.location.href = "./addMission.html?openId=" + openId + 
         "&userguid=" + userguid + 
-        "&username=" + username + 
-        "&AuthDB=" + AuthDB
+        "&AuthDB=" + AuthDB + 
+        "&isadd=1"
         ;
     })
 

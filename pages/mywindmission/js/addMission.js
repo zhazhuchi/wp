@@ -19,10 +19,32 @@ var openId = urlParam["openId"];
 var username = urlParam["username"];
 var userguid = urlParam["userguid"];
 var AuthDB = urlParam["AuthDB"];
+var isadd = urlParam["isadd"];
 username = decodeURIComponent(username);
-var nowdate = getNowFormatDate();
-$("#chooseXJDate").text(nowdate);
-$("#xjry").text(username);
+
+var taskname = urlParam["taskname"];
+var xjsj = urlParam["xjsj"];
+xjsj = decodeURIComponent(xjsj);
+var adduserguid = urlParam["adduserguid"];
+taskname = decodeURIComponent(taskname);
+
+if(taskname != "" && taskname != undefined && taskname != "undefined"){
+    $("#taskname").val(taskname);
+}
+
+if(xjsj != "" && xjsj != undefined && xjsj != "undefined"){
+    $("#chooseXJDate").text(xjsj);
+} else {
+    var nowdate = getNowFormatDate();
+    $("#chooseXJDate").text(nowdate);
+}
+
+if(username != "" && username != undefined && username != "undefined"){
+    $("#xjry").text(username);
+} else {
+    $("#xjry").text("请选择巡检人员");
+}
+
 
 var InitLon = "";
 var InitLat = "";
@@ -46,6 +68,14 @@ function judgeIsBind(){
             if(data.ReturnInfo[0].Code == '1'){
                 InitLon = data.UserArea[0].InitLon;
                 InitLat = data.UserArea[0].InitLat;
+
+                aauserguid = data.UserArea[0].UserGuid;
+                aausername = data.UserArea[0].Alias;
+                if(isadd != "" && isadd != undefined && isadd != "undefined"){
+                    $("#xjry").text(aausername + ";");
+                    adduserguid = aauserguid + ";"
+                }
+
             }
         },
         error: function() {
@@ -102,7 +132,7 @@ ComplexCustomOverlay.prototype.draw = function () {
 }
 
 
-$("#confirmSubmit").click(function(){
+$("#confirmSubmitCheck").click(function(){
 
     if($("#taskname").val() == ""){
         window.YDUI.dialog.toast('请先填写任务名称', 'error', 1000);
@@ -112,7 +142,7 @@ $("#confirmSubmit").click(function(){
     var uuuuid = uuid();
     var requestData = {
         "DataBeaseID":AuthDB,
-        "InspectorID":userguid,
+        "InspectorID":adduserguid,
         "taskname":$("#taskname").val(),
         "InspectionTime":$("#chooseXJDate").text(),
         "Status":"待办",
@@ -284,3 +314,20 @@ var showVConsole = Window.Config.showVConsole;
 if(showVConsole){
     document.write("<script src='../../js/libs/vconsole.min.js'><\/script>");
 }
+
+$("#addpeople").click(function(){
+    var asd = $("#xjry").text();
+    if(asd == "请选择巡检人员"){
+        asd = "";
+    }
+    window.location.href = "./choosePeople.html?" + 
+        "openId=" + openId + 
+        "&userguid=" + userguid + 
+        "&taskname=" + $("#taskname").val() + 
+        "&xjsj=" + $("#chooseXJDate").text() + 
+        "&adduserguid=" + adduserguid + 
+        "&addusername=" + asd + 
+        "&AuthDB=" + AuthDB + 
+        "&process=add"
+        ;
+});

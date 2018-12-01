@@ -247,6 +247,14 @@ function pullupRefresh() {
 
 
 
+mui("#datalist").on("tap","div.leftitem",function(e){
+    var id = $(this).attr("rowguid");
+    var pointdes = $(this).attr("pointdes")
+    pointdes = encodeURIComponent(pointdes);
+    
+    window.location.href = "./historygrid.html?rowguid=" + id + "&totalInfo=" + pointdes + "&AuthDB=" + AuthDB;
+});
+
 
 
 

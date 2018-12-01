@@ -290,19 +290,73 @@ function readerImage(fil){
 
 
 
-$("#lastBtn").click(function(){
-    window.YDUI.dialog.confirm('', '确认更新巡检信息？', function () {
-        confirmSubmit();
-    });
-});
+$("#confirmSubmit").click(function(){
 
-//更新风电检查
-function confirmSubmit(){
+    var tmplist = $(".HBtns");
+    for(var index = 0 ; index < tmplist.length ; index++){
+        var hasfjSuc = $(tmplist[index]).find("div.succState").hasClass("fjSuc");
+        var hasfjErr = $(tmplist[index]).find("div.failState").hasClass("fjErr");
+        if(!hasfjSuc && !hasfjErr){
+            window.YDUI.dialog.toast('风机信息中必须全部选择相应状态', 'error', 1200);
+            return;
+        }
+    }
+
+    if($("#ycms").val() == ""){
+        window.YDUI.dialog.toast('请填写异常描述', 'error', 1000);
+        return;
+    }
+
+    if($("#bzsm").val() == ""){
+        window.YDUI.dialog.toast('请填写备注说明', 'error', 1000);
+        return;
+    }
 
     if(photocount - needDeluploadimgGuids.split(";") + 1 + realuploadimg.length > 5){
         window.YDUI.dialog.toast('最多只能上传五张图片', 'error', 1000);
         return;
     }
+
+    window.YDUI.dialog.confirm('', '确认更新巡检信息？', function () {
+        confirmSubmit("1");
+    });
+});
+
+
+$("#confirmSubmit2").click(function(){
+
+    var tmplist = $(".HBtns");
+    for(var index = 0 ; index < tmplist.length ; index++){
+        var hasfjSuc = $(tmplist[index]).find("div.succState").hasClass("fjSuc");
+        var hasfjErr = $(tmplist[index]).find("div.failState").hasClass("fjErr");
+        if(!hasfjSuc && !hasfjErr){
+            window.YDUI.dialog.toast('风机信息中必须全部选择相应状态', 'error', 1200);
+            return;
+        }
+    }
+
+    if($("#ycms").val() == ""){
+        window.YDUI.dialog.toast('请填写异常描述', 'error', 1000);
+        return;
+    }
+
+    if($("#bzsm").val() == ""){
+        window.YDUI.dialog.toast('请填写备注说明', 'error', 1000);
+        return;
+    }
+
+    if(photocount - needDeluploadimgGuids.split(";") + 1 + realuploadimg.length > 5){
+        window.YDUI.dialog.toast('最多只能上传五张图片', 'error', 1000);
+        return;
+    }
+
+    window.YDUI.dialog.confirm('', '确认暂存巡检信息？', function () {
+        confirmSubmit("0");
+    });
+});
+
+//更新风电检查
+function confirmSubmit(needTmpStorage){
 
     var succDomList = $("div.fjSuc");
     var failDomList = $("div.fjErr");
@@ -326,6 +380,7 @@ function confirmSubmit(){
     formdata.append("AttachGuid",       AttachGuid);
     formdata.append("UserGuid",         userguid);
     formdata.append("DelPhotoID",       needDeluploadimgGuids);
+    formdata.append("checkstatus",      needTmpStorage);
 
     for(var index = 0 ; index < realuploadimg.length ; index++){
         if(realuploadimgIndex[index] >= 0)

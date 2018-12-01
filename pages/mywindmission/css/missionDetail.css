@@ -175,6 +175,7 @@
 .editStateTxt{
     float: right;
     color: #888;
+    line-height: 13px;
 }
 .editStatePic{
     float: right;
@@ -188,6 +189,42 @@
 }
 
 
+.editState2{
+    position: absolute;
+    top: 13px;
+    right: 22px;
+}
+.editStateTxt2{
+    float: right;
+    color: #888;
+    line-height: 13px;
+    font-size: 12px;
+}
+.editStatePic2{
+    float: right;
+    width: 14px;
+    height: 14px;
+    margin-top: 2.2px;
+}
+.editStatePic2 img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.editState3{
+    position: absolute;
+    top: 13px;
+    right: 22px;
+}
+.editStateTxt3{
+    float: right;
+    color: #888;
+    line-height: 13px;
+    font-size: 12px;
+}
 
 
 
@@ -335,4 +372,88 @@ ul{
 
 #locationIcon img{
     width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#chooseShowType{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 80px;
+}
+#chooseShowTxt{
+    text-align: center;
+    color: #585858;
+    font-size: 0.28rem;
+    line-height: 0.85rem;
+    width: 98px;
+    clear: both;
+}
+#chooseShowItemsBorder{
+    clear: both;
+    display: none;
+}
+#chooseShowItems{
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.chooseShowItem{
+    height: 38px;
+    line-height: 38px;
+    width: 80px;
+    background-color: #FFF;
+    display: block;
+    color: #000;
+    font-size: 13px;
+    position: relative;
+}
+
+.chooseShowItemActive{
+    color: #FFF;
+}
+
+
+.downuptxt{
+    float: left;
+    padding-left: 13px;
+    font-size: 12px;
+    line-height: 44px;
+}
+.downIcon{
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin-top: 15px;
+    margin-left: 3px;
+}
+.downIcon img{
+    width: 12px;
+}
+
+.upIcon{
+    float: left;
+    width: 11px;
+    height: 11px;
+    margin-top: 16px;
+    margin-left: 3px;
+}
+.upIcon img{
+    width: 11px;
+}
+.updownchoose{
+    display: none;
 }

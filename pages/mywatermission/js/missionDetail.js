@@ -32,6 +32,8 @@ var mapBorder = null;
 var standp = [];
 var userp = [];
 
+var DutyAreaStatus = "";
+
 var whichBtn = "";
 var jssdklat = "";
 var jssdklon = "";
@@ -41,6 +43,43 @@ var top_left_control = new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_RI
 // 百度地图API功能     用来定位的
 var mp = new BMap.Map("tc_baidu_map",{mapType:BMAP_HYBRID_MAP});//创建地图实例
 mp.disableDragging(); 
+
+
+var AuthMoreShuiDian = "";
+
+
+
+
+judgeIsBind();
+//判断用户是否绑定  如果没有绑定的话  跳转绑定页面
+function judgeIsBind(){
+    //ajax请求下拉刷新数据
+    var requestData = {
+        "LoginID": "",
+        "PassWord": "",
+        "OpenID": openId
+    };
+    $.ajax({
+        url: businessServerUrl + '/UserLogin/Login.ashx',
+        type: 'post',
+        data: requestData,
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            console.log(JSON.stringify(data));
+            if(data.ReturnInfo[0].Code == '1'){
+                //表示已绑定
+                AuthMoreShuiDian = data.UserArea[0].AuthMoreShuiDian;
+            }
+        },
+        error: function() {
+            window.YDUI.dialog.toast('接口请求失败！', 'error', 1000);
+        }
+    });
+}
+
+
+
 
 
 
@@ -198,6 +237,7 @@ ComplexCustomOverlay.prototype.draw = function () {
 
 //请求整个页面上的数据
 var requestData = {
+    "UserGuid":userguid,
     "DataBeaseID":AuthDB,
     "WaterDutyID": missionguid
 };
@@ -210,6 +250,19 @@ $.ajax({
         console.log(JSON.stringify(data));
         if(data.ReturnInfo[0].Code == '1'){
             var datas = data.AreaSignList;
+
+            DutyAreaStatus = data.DutyArea[0].Status;
+
+            if(DutyAreaStatus == "待办"){
+                for(var index = 0 ; index < datas.length ; index++){
+                    datas[index].showSlider = "1";
+                }
+            } else {
+                for(var index = 0 ; index < datas.length ; index++){
+                    datas[index].showSlider = "";
+                }
+            }
+            
 
             $('#AllInfoValue1').text(data.DutyArea[0].taskname);
             $('#AllInfoValue2').text(data.DutyArea[0].InspectionTime);
@@ -245,6 +298,35 @@ $.ajax({
             userp = data.AreaSignList;
 
             drawStandLuxian();
+
+
+
+
+            var Statususe = data.DutyArea[0].Status;
+            var isOwn = data.DutyArea[0].ISOwn;
+            if(AuthMoreShuiDian == 1){
+                //表示为管理员
+                if(Statususe == "待办" && isOwn == "1"){
+                    $(".editState").hide();
+                    $(".editState2").show();
+                } else {
+                    $(".editState").show();
+                    $(".editState2").hide();
+                }
+            } else {
+                //表示为普通用户
+                if(Statususe == "待办"){
+                    $(".editState").hide();
+                    $(".editState2").show();
+                } else {
+                    $(".editStatex").hide();
+                    $(".editState2").hide();
+                }
+            }
+
+            registerEvent();
+
+
             window.YDUI.dialog.loading.close();
         } else {
             window.YDUI.dialog.toast('刷新失败，接口报错！', 'error', 1000);
@@ -255,77 +337,83 @@ $.ajax({
     }
 });
 
-
-//点击某一个事项 弹签到窗口
-$("#shixiangList").on("click" , "div.mui-slider-handle" , function(){
-
-    fullpath = $(this).find("span.shixiangLujingTxt").text().trim() + $(this).find("span.shixiangLujingValue").text().trim();
-    notfullpath = $(this).find("div.shixiangName").text().trim();
-
-    var ReportID = $(this).attr("ReportID");
-    whichMissionItemGuid = $(this).attr("rowguid");
-
-    if($(this).attr("statecolor") == "#C1FFC1" || $(this).attr("statecolor") == "#228B22"){
-        window.YDUI.dialog.toast('该事项为正常状态，请勿重复操作', 'error', 1000);
-        return;
+function registerEvent(){
+    if(DutyAreaStatus != "待办"){
+        //点击某一个事项 弹签到窗口
+        $("#shixiangList").on("click" , "div.mui-slider-handle" , function(){
+    
+            fullpath = $(this).find("span.shixiangLujingTxt").text().trim() + $(this).find("span.shixiangLujingValue").text().trim();
+            notfullpath = $(this).find("div.shixiangName").text().trim();
+    
+            var ReportID = $(this).attr("ReportID");
+            whichMissionItemGuid = $(this).attr("rowguid");
+    
+            if($(this).attr("statecolor") == "#C1FFC1" || $(this).attr("statecolor") == "#228B22"){
+                window.YDUI.dialog.toast('该事项为正常状态，请勿重复操作', 'error', 1000);
+                return;
+            }
+    
+            var issign = $(this).attr("issign");
+    
+            if(issign == "1"){
+                //已签到
+                if(ReportID == ""){
+                    window.YDUI.dialog.toast('您已签到但未上报异常', 'error', 1000);
+    
+                    setTimeout(function(){
+                        window.location.href = "./yichangshangbao.html?missionguid=" + missionguid + 
+                        "&userguid=" + userguid + 
+                        "&openId=" + openId + 
+                        "&checkIntemGuid=" + whichMissionItemGuid + 
+                        "&fullpath=" + fullpath + 
+                        "&notfullpath=" + notfullpath + 
+                        "&rowguid=add" + 
+                        "&AuthDB=" + AuthDB
+                        ;
+                    } , 900);
+    
+                    return;
+    
+                } else {
+                    window.YDUI.dialog.toast('您已签到', 'error', 1000);
+    
+                    setTimeout(function(){
+                        window.location.href = "./yichangDetail.html?missionguid=" + missionguid + 
+                        "&userguid=" + userguid + 
+                        "&openId=" + openId + 
+                        "&checkIntemGuid=" + whichMissionItemGuid + 
+                        "&rowguid=" + ReportID + 
+                        "&AuthDB=" + AuthDB;
+                    } , 1200);
+                    return;
+                }
+                
+            }
+            whichBtn = "0";
+            if(jssdklon == "" || jssdklat == ""){
+                window.YDUI.dialog.loading.open('定位中…');
+                confirmLocation("1");
+            } else {
+    
+                $("#tc_map").show();
+                $(".allmask").show();
+    
+                var gcj02tobd09 = coordtransform.gcj02tobd09(jssdklon, jssdklat);
+    
+                mp = new BMap.Map("tc_baidu_map",{mapType:BMAP_HYBRID_MAP});
+                var point = new BMap.Point(gcj02tobd09[0], gcj02tobd09[1]);
+                mp.centerAndZoom(point,14);
+                mp.panTo(point);
+                mp.disableDragging(); 
+    
+                
+            }
+        });
     }
+}
 
-    var issign = $(this).attr("issign");
 
-    if(issign == "1"){
-        //已签到
-        if(ReportID == ""){
-            window.YDUI.dialog.toast('您已签到但未上报异常', 'error', 1000);
 
-            setTimeout(function(){
-                window.location.href = "./yichangshangbao.html?missionguid=" + missionguid + 
-                "&userguid=" + userguid + 
-                "&openId=" + openId + 
-                "&checkIntemGuid=" + whichMissionItemGuid + 
-                "&fullpath=" + fullpath + 
-                "&notfullpath=" + notfullpath + 
-                "&rowguid=add" + 
-                "&AuthDB=" + AuthDB
-                ;
-            } , 900);
-
-            return;
-
-        } else {
-            window.YDUI.dialog.toast('您已签到', 'error', 1000);
-
-            setTimeout(function(){
-                window.location.href = "./yichangDetail.html?missionguid=" + missionguid + 
-                "&userguid=" + userguid + 
-                "&openId=" + openId + 
-                "&checkIntemGuid=" + whichMissionItemGuid + 
-                "&rowguid=" + ReportID + 
-                "&AuthDB=" + AuthDB;
-            } , 1200);
-            return;
-        }
-        
-    }
-    whichBtn = "0";
-    if(jssdklon == "" || jssdklat == ""){
-        window.YDUI.dialog.loading.open('定位中…');
-        confirmLocation("1");
-    } else {
-
-        $("#tc_map").show();
-        $(".allmask").show();
-
-        var gcj02tobd09 = coordtransform.gcj02tobd09(jssdklon, jssdklat);
-
-        mp = new BMap.Map("tc_baidu_map",{mapType:BMAP_HYBRID_MAP});
-        var point = new BMap.Point(gcj02tobd09[0], gcj02tobd09[1]);
-        mp.centerAndZoom(point,14);
-        mp.panTo(point);
-        mp.disableDragging(); 
-
-        
-    }
-});
 
 $("#shixiangList").on("click" , ".zcbtn" , function(){
 
@@ -548,6 +636,47 @@ function AddORUpdateSignStatus(type , st){
 
 
 
+//点击完成按钮调用提交ajax
+$("#xiugaizhuangtai2").click(function(){
+    window.YDUI.dialog.confirm('', '确认完成？', function () {
+        confirmSubmit();
+    });
+});
+function confirmSubmit(){
+    var requestData = {
+        "DataBeaseID":AuthDB,
+        "InspectorID":userguid,
+        "taskname": $("#AllInfoValue1").text(),
+        "OldInspectionTime":$("#AllInfoValue3").text(),
+        "NewInspectionTime":$("#AllInfoValue3").text(),
+        "WaterDutyID":missionguid
+    };
+    $.ajax({
+        url: businessServerUrl + '/WaterDutyDeal/SubmitWaterDuty.ashx',
+        type: 'post',
+        data: requestData,
+        dataType: 'json',
+        success: function(data) {
+            console.log(JSON.stringify(data));
+            if(data.ReturnInfo[0].Code == '1'){
+                window.YDUI.dialog.toast('提交成功', 'success', 1000);
+
+                setTimeout(function(){
+                    window.location.reload();
+                } , 900);
+
+            } else {
+                window.YDUI.dialog.toast('刷新失败，接口报错！', 'error', 1000);
+            }
+        },
+        error: function() {
+            window.YDUI.dialog.toast('接口请求失败！', 'error', 1000);
+        }
+    });
+}
+
+
+
 
 
 
@@ -738,7 +867,7 @@ function drawUserLuxian(){
     }
 
     //画轨迹线
-    var curve = new BMapLib.CurveLine(drawLine, {strokeColor:"white", strokeWeight:4, strokeOpacity:0.9, strokeStyle:"dashed"}); //创建
+    var curve = new BMapLib.CurveLine(drawLine, {strokeColor:"red", strokeWeight:4, strokeOpacity:0.9, strokeStyle:"dashed"}); //创建
     mapBorder.addOverlay(curve);
 }
 

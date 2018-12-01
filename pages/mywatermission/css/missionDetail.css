@@ -182,6 +182,7 @@
     position: absolute;
     top: 13px;
     right: 11px;
+    display: none;
 }
 .editStateTxt{
     float: right;
@@ -194,6 +195,27 @@
     margin-top: 1.5px;
 }
 .editStatePic img{
+    width: 100%;
+    height: 100%;
+}
+
+.editState2{
+    position: absolute;
+    top: 13px;
+    right: 11px;
+    display: none;
+}
+.editStateTxt2{
+    float: right;
+    color: #888;
+}
+.editStatePic2{
+    float: right;
+    width: 14px;
+    height: 14px;
+    margin-top: 1.5px;
+}
+.editStatePic2 img{
     width: 100%;
     height: 100%;
 }

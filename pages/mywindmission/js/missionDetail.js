@@ -29,6 +29,8 @@ var mapBorder = null;
 var standp = [];
 var userp = [];
 
+var chooseShow = false;
+
 var top_left_control = new BMap.NavigationControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL});
 
 
@@ -66,10 +68,6 @@ ComplexCustomOverlay.prototype.initialize = function (map) {
     arrow.style.left = "0px";
     div.appendChild(arrow);
 
-    // div.addEventListener("touchstart", function () {
-    //     //showTcWindow(this._guid);
-    // });
-
     mapBorder.getPanes().labelPane.appendChild(div);
     return div;
 }
@@ -79,6 +77,40 @@ ComplexCustomOverlay.prototype.draw = function () {
     this._div.style.left = pixel.x - parseInt(this._arrow.style.left) + "px";
     this._div.style.top = pixel.y - 30 + "px";
 }
+
+
+
+
+judgeIsBind();
+//判断用户是否绑定  如果没有绑定的话  跳转绑定页面
+function judgeIsBind(){
+    //ajax请求下拉刷新数据
+    var requestData = {
+        "LoginID": "",
+        "PassWord": "",
+        "OpenID": openId
+    };
+    $.ajax({
+        url: businessServerUrl + '/UserLogin/Login.ashx',
+        type: 'post',
+        data: requestData,
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            console.log(JSON.stringify(data));
+            if(data.ReturnInfo[0].Code == '1'){
+                AuthMoreFenDian = data.UserArea[0].AuthMoreFenDian;
+            }
+        },
+        error: function() {
+            window.YDUI.dialog.toast('接口请求失败！', 'error', 1000);
+        }
+    });
+}
+
+
+
+
 
 
 $(".editStateTxt").click(function(){
@@ -92,6 +124,7 @@ $(".editStateTxt").click(function(){
 
 //ajax请求下拉刷新数据
 var requestData = {
+    "UserGuid":userguid,
     "DataBeaseID": AuthDB,
     "WinpowerDutyID": rowguid
 };
@@ -116,8 +149,6 @@ $.ajax({
             $("#RWMC").text(rwmc);
             $("#XJRY").text(xjry);
             $("#XJSJ").text(xjsj);
-
-
 
             var tmpDutyList = data.AreaCheckList;
 
@@ -154,6 +185,39 @@ $.ajax({
 
             drawStandLuxian();
             //drawUserLuxian();
+
+
+            // var Statususe = data.DutyArea[0].Status;
+            // var isOwn = data.DutyArea[0].ISOwn;
+            // if(AuthMoreFenDian == 1){
+            //     //表示为管理员
+            //     if(Statususe == "待办" && isOwn == "1"){
+            //         $(".editState").hide();
+            //         $(".editState2").show();
+            //     } else {
+            //         $(".editState").show();
+            //         $(".editState2").hide();
+            //     }
+            // } else {
+            //     //表示为普通用户
+            //     if(Statususe == "待办"){
+            //         $(".editState").hide();
+            //         $(".editState2").show();
+            //     } else {
+            //         $(".editStatex").hide();
+            //         $(".editState2").hide();
+            //     }
+            // }
+            var Statususe = data.DutyArea[0].Status;
+            if(Statususe == "待办"){
+                $("#chooseShowType").show();
+            } else {
+                $("#chooseShowType").hide();
+            }
+
+
+
+
 
             window.YDUI.dialog.loading.close();
 
@@ -289,3 +353,121 @@ var showVConsole = Window.Config.showVConsole;
 if(showVConsole){
     document.write("<script src='../../js/libs/vconsole.min.js'><\/script>");
 }
+
+
+
+
+
+$(".editStateTxt3").click(function(){
+    window.YDUI.dialog.confirm('', '确认发送？', function () {
+        confirmSend();
+    });
+});
+
+
+function confirmSend(){
+    var requestData = {
+        "DataBeaseID":AuthDB,
+        "InspectorID":userguid,
+        "taskname":$("#RWMC").text(),
+        "OldInspectionTime":$("#XJSJ").text(),
+        "NewInspectionTime":$("#XJSJ").text(),
+        "WinpowerDutyID":rowguid
+    };
+    $.ajax({
+        url: businessServerUrl + '/WinPowerDuty/SendDuty.ashx',
+        type: 'post',
+        data: requestData,
+        dataType: 'json',
+        success: function(data) {
+            console.log(JSON.stringify(data));
+            if(data.ReturnInfo[0].Code == '1'){
+                window.YDUI.dialog.toast('发送成功', 'success', 1000);
+
+                setTimeout(function(){
+                    window.location.reload();
+                } , 900);
+
+            } else {
+                window.YDUI.dialog.toast('刷新失败，接口报错！', 'error', 1000);
+            }
+        },
+        error: function() {
+            window.YDUI.dialog.toast('接口请求失败！', 'error', 1000);
+        }
+    });
+}
+
+
+
+
+
+
+//点击完成按钮调用提交ajax
+$(".editStateTxt2").click(function(){
+    window.YDUI.dialog.confirm('', '确认完成？', function () {
+        confirmSubmit();
+    });
+});
+function confirmSubmit(){
+    var requestData = {
+        "DataBeaseID":AuthDB,
+        "InspectorID":userguid,
+        "taskname":$("#RWMC").text(),
+        "OldInspectionTime":$("#XJSJ").text(),
+        "NewInspectionTime":$("#XJSJ").text(),
+        "WinpowerDutyID":rowguid
+    };
+    $.ajax({
+        url: businessServerUrl + '/WinPowerDuty/EditDuty.ashx',
+        type: 'post',
+        data: requestData,
+        dataType: 'json',
+        success: function(data) {
+            console.log(JSON.stringify(data));
+            if(data.ReturnInfo[0].Code == '1'){
+                window.YDUI.dialog.toast('提交成功', 'success', 1000);
+
+                setTimeout(function(){
+                    window.location.reload();
+                } , 900);
+
+            } else {
+                window.YDUI.dialog.toast('刷新失败，接口报错！', 'error', 1000);
+            }
+        },
+        error: function() {
+            window.YDUI.dialog.toast('接口请求失败！', 'error', 1000);
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$("#chooseShowTxt").click(function(){
+    if(chooseShow){
+        chooseShow = false;
+        $("#chooseShowTxt>.downIcon").show();
+        $("#chooseShowTxt>.upIcon").hide();
+        $("#chooseShowTxt").css("color","#585858");
+        $("#chooseShowItemsBorder").slideUp("fast");
+
+    } else {
+        chooseShow = true;
+        $("#chooseShowTxt>.downIcon").hide();
+        $("#chooseShowTxt>.upIcon").show();
+        $("#chooseShowTxt").css("color","#517FF3");
+        $("#chooseShowItemsBorder").slideDown("fast");
+    }
+});

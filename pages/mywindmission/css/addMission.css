@@ -180,7 +180,7 @@
     font-size: 16px;
     z-index: 1000;
 }
-#confirmSubmit{
+#confirmSubmitCheck{
     background-color: #517FF3;
     width: 100%;
     float: left;
@@ -294,4 +294,16 @@ ul{
 .needdDecorTxt{
     text-decoration: underline;
     color: #517FF3;
+}
+
+
+
+#addpeople{
+    float: right;
+    height: 36px;
+    padding-left: 12px;
+}
+
+#addpeople img{
+    height: 100%;
 }

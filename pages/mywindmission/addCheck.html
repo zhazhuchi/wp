@@ -11,7 +11,16 @@
 </head>
 <body>
 
-    <div>
+    <header class="m-navbar" id="heade">
+        <a href="#" class="navbar-item" id="backicon">
+            <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">新增检查</span>
+        </div>
+    </header>
+
+    <div style="margin-top:55px">
         <div class="item">
             <div class="itemTitle">
                 <div class="blueblock"></div>
@@ -102,6 +111,7 @@
 
     <div id="lastBtn">
         <div id="confirmSubmit">提交</div>
+        <div id="confirmSubmit2">暂存</div>
     </div>
 </body>
 </html>
@@ -117,7 +127,7 @@
                         <div class="fj_info_list_item_key">{{ObjectStatus}}</div>
                         <div class="fj_info_list_item_value">
                             <div class="HBtns">
-                                <div class="succState fjSuc" id="{{ID}}">正常</div>
+                                <div class="succState" id="{{ID}}">正常</div>
                                 <div class="failState" id="{{ID}}">异常</div>
                             </div>
                         </div>

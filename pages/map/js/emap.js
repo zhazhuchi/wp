@@ -277,7 +277,7 @@ function IntervalRefresh() {
             }
         },
         error: function () {
-            window.YDUI.dialog.toast('接口请求失败！', 'error', 1000);
+            window.YDUI.dialog.toast('接口请求失败222！', 'error', 1000);
         }
     });
 }
@@ -494,7 +494,7 @@ document.getElementById('mask').ontouchstart = function(e){
     e.preventDefault();
 }
 
-var showVConsole = Window.Config.showVConsole;
-if(showVConsole){
-    document.write("<script src='../../js/libs/vconsole.min.js'><\/script>");
-}
+// var showVConsole = Window.Config.showVConsole;
+// if(showVConsole){
+//     document.write("<script src='../../js/libs/vconsole.min.js'><\/script>");
+// }

@@ -280,21 +280,83 @@ function readerImage(fil){
 
 
 //点击完成提交信息
-$("#lastBtn").click(function(){
-    window.YDUI.dialog.confirm('', '确认新增巡检？', function () {
-        confirmSubmit();
-    });
-});
+$("#confirmSubmit").click(function(){
 
+    if($(".checkPlaceValue").text() == "请选择检查地点"){
+        window.YDUI.dialog.toast('请至少选择一个选择地点', 'error', 1000);
+        return;
+    }
 
+    var tmplist = $(".HBtns");
+    for(var index = 0 ; index < tmplist.length ; index++){
+        var hasfjSuc = $(tmplist[index]).find("div.succState").hasClass("fjSuc");
+        var hasfjErr = $(tmplist[index]).find("div.failState").hasClass("fjErr");
+        if(!hasfjSuc && !hasfjErr){
+            window.YDUI.dialog.toast('风机信息中必须全部选择相应状态', 'error', 1200);
+            return;
+        }
+    }
 
-function confirmSubmit(){
+    if($("#ycmss").val() == ""){
+        window.YDUI.dialog.toast('请填写异常描述', 'error', 1000);
+        return;
+    }
 
+    if($("#remark").val() == ""){
+        window.YDUI.dialog.toast('请填写备注说明', 'error', 1000);
+        return;
+    }
 
     if(realuploadimg.length > 5){
         window.YDUI.dialog.toast('最多只能上传五张图片', 'error', 1000);
         return;
     }
+
+    window.YDUI.dialog.confirm('', '确认新增巡检？', function () {
+        confirmSubmit("1");
+    });
+});
+
+$("#confirmSubmit2").click(function(){
+
+    if($(".checkPlaceValue").text() == "请选择检查地点"){
+        window.YDUI.dialog.toast('请至少选择一个选择地点', 'error', 1000);
+        return;
+    }
+
+    var tmplist = $(".HBtns");
+    for(var index = 0 ; index < tmplist.length ; index++){
+        var hasfjSuc = $(tmplist[index]).find("div.succState").hasClass("fjSuc");
+        var hasfjErr = $(tmplist[index]).find("div.failState").hasClass("fjErr");
+        if(!hasfjSuc && !hasfjErr){
+            window.YDUI.dialog.toast('风机信息中必须全部选择相应状态', 'error', 1200);
+            return;
+        }
+    }
+
+    if($("#ycmss").val() == ""){
+        window.YDUI.dialog.toast('请填写异常描述', 'error', 1000);
+        return;
+    }
+
+    if($("#remark").val() == ""){
+        window.YDUI.dialog.toast('请填写备注说明', 'error', 1000);
+        return;
+    }
+
+    if(realuploadimg.length > 5){
+        window.YDUI.dialog.toast('最多只能上传五张图片', 'error', 1000);
+        return;
+    }
+
+    window.YDUI.dialog.confirm('', '确认暂存巡检？', function () {
+        confirmSubmit("0");
+    });
+});
+
+
+
+function confirmSubmit(needTmpStorage){
 
     var formdata = new FormData();
 
@@ -319,6 +381,7 @@ function confirmSubmit(){
     formdata.append("Status",  processEnd);
     formdata.append("WinpowerDutyID",  missionguid);
     formdata.append("UserGuid",  userguid);
+    formdata.append("checkstatus",  needTmpStorage);
 
     for(var index = 0 ; index < realuploadimg.length ; index++){
         if(realuploadimgIndex[index] >= 0)
@@ -402,3 +465,9 @@ var showVConsole = Window.Config.showVConsole;
 if(showVConsole){
     document.write("<script src='../../js/libs/vconsole.min.js'><\/script>");
 }
+
+
+
+$("#backicon").click(function(){
+    window.history.go(-1);
+});

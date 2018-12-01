@@ -1,3 +1,11 @@
+#heade{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+
 .item{
     background-color: #FFF;
     padding-top: 6px;
@@ -373,7 +381,15 @@ textarea{
 }
 #confirmSubmit{
     background-color: #517FF3;
-    width: 100%;
+    width: 50%;
+    float: left;
+    height: 44px;
+    text-align: center;
+    line-height: 44px;
+}
+#confirmSubmit2{
+    background-color: #bbb;
+    width: 50%;
     float: left;
     height: 44px;
     text-align: center;

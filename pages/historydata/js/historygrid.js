@@ -89,34 +89,30 @@ var EchartContent = document.getElementById("EchartContent");
 var Echart = echarts.init(EchartContent);
 
 function beginshowGrid(tmp1 , tmp2){
+
+    tmp1 = tmp1.reverse();
+    var intervalcompute = Math.floor(tmp1.length / 3);
+
     var option = {
+        grid:{
+            y2:150
+        },
         xAxis: {
             type: 'category',
-            boundaryGap: false,
             data: tmp1,
-            axisLine: {
-                lineStyle: {
-                    color: '#888'
-                }
+            "axisLabel":{
+                interval: intervalcompute,
+                rotate:-60,
             }
         },
         yAxis: {
-            type: 'value',
-            axisLine: {
-                lineStyle: {
-                    color: '#888'
-                }
-            },
-            scale: true
+            type: 'value'
         },
         series: [{
             data: tmp2,
             type: 'line',
-            areaStyle: {
-                color: [
-                    'rgba(168,197,243,0.3)'
-                ]
-            },
+            symbol: 'circle',     //设定为实心点
+            symbolSize: 12,   //设定实心点的大小
             itemStyle : {  
                 normal : {  
                     color:'rgba(168,197,243,0.3)', 
@@ -128,6 +124,9 @@ function beginshowGrid(tmp1 , tmp2){
         }]
     };
     if (option && typeof option === "object") {
+        Echart.on("click", function(params){
+            mui.toast(params.name + " " + params.data);
+        });
         Echart.setOption(option, true);
     }
 }
@@ -494,7 +493,7 @@ document.getElementById('AllMask').ontouchstart = function(e){
     e.preventDefault();
 }
 
-var showVConsole = Window.Config.showVConsole;
-if(showVConsole){
-    document.write("<script src='../../js/libs/vconsole.min.js'><\/script>");
-}
+// var showVConsole = Window.Config.showVConsole;
+// if(showVConsole){
+//     document.write("<script src='../../js/libs/vconsole.min.js'><\/script>");
+// }
